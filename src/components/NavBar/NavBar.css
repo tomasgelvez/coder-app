@@ -1,0 +1,49 @@
+.NavBar{
+    display: flex;
+    background: rgb(177, 162, 162);
+    justify-content: space-around;
+    align-items: center;
+    height: 120px;
+    width: 100%;
+
+}
+
+.navButtonsLeft{
+    padding-left: 25px;
+    display: grid;
+    grid-template-columns: repeat(5, auto) ;
+    grid-gap: 50px;
+    list-style-type: none;
+}
+
+.navButtonsRight{
+    padding-left: 25px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 50px;
+    list-style-type: none;
+}
+
+
+.LeftNavBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.RightNavBar{
+    display: flex;
+    padding: 0px 5px;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.Option{
+    background-color: aliceblue;
+    color: rgb(15, 14, 14);
+    text-decoration: none;
+    border-radius: 35;
+}
+
