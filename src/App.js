@@ -1,7 +1,6 @@
 
 import './App.css';
 import NavBar from '../src/components/NavBar/NavBar.js'
-import { useState } from 'react';
 
 import Products from './components/products.js';
 
