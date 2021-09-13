@@ -6,9 +6,7 @@ const Products = () => {
     const [count, setCount] = useState(0)
     const myFuncionBuy = () => {
         if(count === 25){
-            return (
-                <h1>No puedo sumar mas, has llegado al max.</h1>
-            )
+            console.log('No puedo sumar mas')
         }else{
             setCount(count + 1)
         }
