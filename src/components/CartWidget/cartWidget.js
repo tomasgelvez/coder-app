@@ -1,4 +1,4 @@
-import logo from './Assets/img/logo.png'
+import logo from '../Assets/img/logo.png'
 import './cartWidget.css'
 
 

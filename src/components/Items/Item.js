@@ -11,8 +11,8 @@ const Item = ({producto}) => {
 return(
         <>
         
-        <div className="card" >
-            <img className="card-img-top" src="#" alt="imagen"></img>
+        <div className="card" style={{style:'width: 18rem'}}>
+            <img className="card-img-top" src={producto.imagen} alt="imagen"></img>
             <div className="card-body">
             <h5 className="card-title">{producto.title}</h5>
                 <p className="card-text">{producto.description}</p>
@@ -22,7 +22,7 @@ return(
                 <li className="list-group-item">{producto.price}</li>
             </ul>
             <button type="button" className="btn btn-success" >Buy</button>
-                <button type="button" className="btn btn-danger" >Remove</button>
+            <button type="button" className="btn btn-danger" >Remove</button>
         </div>
         </>
         ) 

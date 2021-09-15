@@ -1,10 +1,11 @@
  import './NavBar.css';
-import Logo from '../CartWidget/cartWidget.js'; 
+import Logo from '../CartWidget/cartWidget'; 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import cartdash from "../Assets/img/cart-dash.svg";
-import '../cartWidget.css'
-import Items from '../ItemsListContainer';
+import '../CartWidget/cartWidget.css'
+import Count from '../Count';
+
 const NavBar = () => {
   
     
@@ -14,7 +15,7 @@ const NavBar = () => {
         <Logo/>
         <a className="navbar-brand ">
           <img src={cartdash} alt = "carrito" width="50"  height="50"></img>
-          <Items/>
+          <Count />
         </a>  
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>

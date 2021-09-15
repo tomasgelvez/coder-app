@@ -1,7 +1,7 @@
 
 import './App.css';
 import NavBar from '../src/components/NavBar/NavBar.js'
-import Products from './components/products';
+import Products from './components/Products.js'
 import ItemsListContainer from './components/ItemListContainer';
 
 
