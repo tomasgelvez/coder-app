@@ -1,10 +1,10 @@
  import './NavBar.css';
-import Logo from '../cartWidget.js'; 
+import Logo from '../CartWidget/cartWidget.js'; 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import cartdash from "../Assets/img/cart-dash.svg";
 import '../cartWidget.css'
-import Items from '../itemsListContainer';
+import Items from '../ItemsListContainer';
 const NavBar = () => {
   
     
