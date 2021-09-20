@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import ItemList from "./Items/ItemList";
-import {getList} from './utils/Mock'
+import ItemList from "../Items/ItemList";
+import {getList} from '../utils/Mock'
 
 
 function  ItemsListContainer (){

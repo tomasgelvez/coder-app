@@ -5,6 +5,7 @@ import { useState } from "react";
 
 
 
+
 const Item = ({producto}) => {
     const [count, setCount] = useState(0)
     const myFuncionBuy = () => {
@@ -41,6 +42,7 @@ return(
             </ul>
             <button type="button" className="btn btn-success" onClick={myFuncionBuy}>Buy</button>
         <button type="button" className="btn btn-danger" onClick={myFuncionDelete}>Remove</button>
+        
         </div>
         </>
         ) 
