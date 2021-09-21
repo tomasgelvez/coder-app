@@ -19,5 +19,7 @@ export default function ItemDetailContainer (){
 
     return(
         <ItemDetail item={producto}/>
+
     )
+
 }
