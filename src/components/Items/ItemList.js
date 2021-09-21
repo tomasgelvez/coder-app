@@ -6,7 +6,7 @@ const ItemList = ({productos}) => {
   return(
     <>
       {productos.map(producto => <Item producto = {producto}/>
-      
+
       )}
 
     </>
@@ -14,4 +14,4 @@ const ItemList = ({productos}) => {
 }
 
 
-export default ItemList 
+export default ItemList
