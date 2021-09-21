@@ -18,6 +18,7 @@ export const getList = new Promise((resolve) => {
 
 
 export const getProduct = new Promise ((resolver) => {
+
     setTimeout(() => {
         resolver(productos)
     },2000)

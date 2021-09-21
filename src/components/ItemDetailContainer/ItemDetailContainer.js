@@ -10,8 +10,9 @@ export default function ItemDetailContainer (){
 
     useEffect(() => {
         getProduct
-        .then(respuesta => {
-            setProductos(respuesta)
+        .then(resolver => {
+            const product = resolver.find(prod => prod.id === 1)
+            setProductos(product)
         })
         .catch(error => console.log(error))
     })

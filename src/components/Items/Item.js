@@ -26,11 +26,11 @@ const Item = ({producto}) => {
 
 
 return(
-        <>
         
-        
-        <div className="card" style={{width:' 18rem', padding: '4px'}}>
-            <img className="card-img-top" src={producto.imagen} alt="imagen"></img>
+
+
+        <div className="card" id={producto.id} style={{width:' 18rem', padding: '4px'}}>
+            <img className="card-img-top" src={producto.imagen} alt="foto"></img>
             <div className="card-body">
             <h5 className="card-title">{producto.title}</h5>
                 <p className="card-text">{producto.description}</p>
@@ -42,10 +42,10 @@ return(
             </ul>
             <button type="button" className="btn btn-success" onClick={myFuncionBuy}>Buy</button>
         <button type="button" className="btn btn-danger" onClick={myFuncionDelete}>Remove</button>
-        
+
         </div>
-        </>
-        ) 
+        
+        )
 }
 
 
