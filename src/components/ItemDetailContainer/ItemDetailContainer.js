@@ -6,7 +6,7 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 
 export default function ItemDetailContainer (){
 
-    const [productos, setProductos] = useState ([])
+    const [producto, setProductos] = useState ([])
 
     useEffect(() => {
         getProduct
@@ -18,6 +18,6 @@ export default function ItemDetailContainer (){
     })
 
     return(
-        <ItemDetail item={productos}/>
+        <ItemDetail item={producto}/>
     )
 }
