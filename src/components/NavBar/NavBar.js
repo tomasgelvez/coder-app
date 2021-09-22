@@ -2,9 +2,8 @@
 import Logo from '../CartWidget/cartWidget'; 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-
+import Count from '../Count/Count.js'
 import '../CartWidget/cartWidget.css'
-import Count from '../Count';
 
 const NavBar = () => {
   
