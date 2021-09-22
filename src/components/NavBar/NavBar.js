@@ -13,7 +13,7 @@ const NavBar = () => {
         <nav className="navbar navbar-pills navbar-light bg-light h-25">
         <div className="container-fluid ">
         <Logo/>
-        <a className="navbar-brand" href="">
+        <a className="navbar-brand ">
           <img src='img/cart-dash.svg' alt = "carrito" width="50"  height="50"></img>
           <Count />
         </a>  
@@ -36,6 +36,7 @@ const NavBar = () => {
             <li><a className="dropdown-item" href="">Televisores</a></li>
             <li><a className="dropdown-item" href="">Celulares</a></li>
             <li><a className="dropdown-item" href="">Lavarropas</a></li>
+            <li><a className="dropdown-item" href="">Heladeras</a></li>
           </ul>
         </li>
       </ul>

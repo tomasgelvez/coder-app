@@ -34,17 +34,17 @@ const ItemDetailContainer = () => {
         })
     },[itemid])
 
-console.log(product)
     return(
         <>
             <ItemDetail producto={product} item={itemid}/>
+
         </>
+
     )
+
 
 }
 
-
-   
 
 
 

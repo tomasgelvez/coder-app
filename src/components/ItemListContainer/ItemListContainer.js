@@ -1,25 +1,26 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import ItemList from '../itemList/ItemList'
-import {getList} from '../utils/Mock'
+import {getList, getProducts} from '../utils/Mock'
 
 
 function  ItemListContainer (){
     const [productos, setProductos] = useState ([])
+    const {categoriaid} = useParams()
 
     useEffect(() => {
-        getList
-        .then(respuesta => {
-            setProductos(respuesta)
+        const list = getProducts(categoriaid)
+        list.then(list => {
+            setProductos(list)
         })
-        .catch(error => console.log(error))
-    })
+    },[categoriaid])
 
 
 
     return(
 
         <div>
-            <ItemList productos = {productos}/>
+            <ItemList productos = {productos} categoria={categoriaid}/>
         </div>
 
     )
