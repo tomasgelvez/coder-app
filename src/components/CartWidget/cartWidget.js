@@ -1,4 +1,4 @@
-import logo from '../Assets/img/logo.png'
+
 import './cartWidget.css'
 
 
@@ -6,9 +6,9 @@ const Logo = () => {
     return(
         <div>
             <a href="/">
-                <img className= "logo" src = {logo} alt= "" width="35%" height="35%"></img>
-            </a>    
-        </div>    
+                <img className= "logo" src = '/img/logo.png' alt= "" width="35%" height="35%"></img>
+            </a>
+        </div>
     )
 }
 

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import ItemList from "../Items/ItemList";
+import ItemList from '../itemList/ItemList'
 import {getList} from '../utils/Mock'
 
 
-function  ItemsListContainer (){
+function  ItemListContainer (){
     const [productos, setProductos] = useState ([])
 
     useEffect(() => {
@@ -26,4 +26,4 @@ function  ItemsListContainer (){
 }
 
 
-export default ItemsListContainer
+export default ItemListContainer
