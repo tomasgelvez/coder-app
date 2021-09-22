@@ -13,7 +13,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 //Comienza el componente
 const ItemDetail = ({product}) => {
-
+console.log(product)
     if(!product ){
         return <h3>Ya no hay productos</h3>
     }

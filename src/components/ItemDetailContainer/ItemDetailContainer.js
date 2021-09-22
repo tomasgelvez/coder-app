@@ -26,7 +26,7 @@ const ItemDetailContainer = () => {
         const listProduct = getProduct()
         listProduct.then(result => {
             const producto = result.find(prod => prod.id === itemid )
-            
+
             setProduct(producto)
         })
         return(() => {
@@ -34,7 +34,7 @@ const ItemDetailContainer = () => {
         })
     },[itemid])
 
-
+console.log(product)
     return(
         <>
             <ItemDetail producto={product} item={itemid}/>
