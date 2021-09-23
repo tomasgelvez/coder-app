@@ -5,10 +5,10 @@ import Item  from '../item/Item.js'
 
 
 
-const ItemList = ({productos}) => {
+const ItemList = ({listProduct}) => {
 
 
-    if(productos.length === 0){
+    if(listProduct?.length === 0){
         return <h3>Cargando stock...</h3>
     }
 
@@ -18,7 +18,7 @@ const ItemList = ({productos}) => {
 
     return (
         <>
-        {productos.map(producto => <Item producto={producto}/>)}
+        {listProduct?.map(producto => <Item key={producto.id} producto={producto} />)}
         </>
     )
 }
