@@ -1,18 +1,25 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-
-
-
-//Simulando promesa
-
-
-
-
+import { useState } from "react/cjs/react.development";
 
 
 //Comienza el componente
 const ItemDetail = ({products}) => {
+
+    const [cantidad, setCantidad] = useState(0)
+
+    const onAdd = () => {
+        if(cantidad < products.stock) {
+            setCantidad(cantidad+1)
+        }
+    }
+
+    const onRemove = () => {
+        if(cantidad > 0) {
+            setCantidad(cantidad - 1)
+        }     
+    }
 
     if(!products ){
         return <h3>Cargando ultimos detalles...</h3>
@@ -20,8 +27,9 @@ const ItemDetail = ({products}) => {
 
     return(
         <>
-
-            <div className="card d-flex " id={products.id} style={{width: '18rem'}}>
+            <div className="container">
+            <div className="row">
+            <div className="card d-flex text-aling-center  " id={products.id} style={{width: '18rem'}}>
 
                 <img className="card-img-top" src={products.imagen} alt="Card"></img>
                     <div className="card-body">
@@ -36,9 +44,10 @@ const ItemDetail = ({products}) => {
                             <div className="card-body">
                             <button className="btn btn-dark">Comprar</button>
                             <span></span>
-                            <button className="btn btn-dark">Cancelar</button> 
-                            
+                            <button className="btn btn-dark">Cancelar</button>
                             </div>
+            </div>
+            </div>
             </div>
 
         </>

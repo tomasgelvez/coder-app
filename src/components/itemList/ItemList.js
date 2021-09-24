@@ -18,7 +18,17 @@ const ItemList = ({listProduct}) => {
 
     return (
         <>
-        {listProduct?.map(producto => <Item key={producto.id} producto={producto} />)}
+        <div className="container d-flex justify-content-center aling-items-center ">
+	        <div className="row">
+                {listProduct?.map(producto =>
+                (
+                    <div className = "col-md-6" key={producto.id}>
+                        <Item producto={producto} />
+                    </div>
+                ))}
+            </div>
+
+        </div>
         </>
     )
 }

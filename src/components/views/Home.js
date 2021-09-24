@@ -6,8 +6,8 @@ function Home  () {
     return(
         <>
 
-            <div className="views container">
-                <h1>Home</h1>
+            <div className="views container pb-4">
+                <h1>Producto online</h1>
                 <ItemListContainer/>
             </div>
 
