@@ -21,7 +21,7 @@ const Item = ({producto}) =>{
             <div className="card-body">
                 <h5 className="card-title">{producto.title}</h5>
                 <p className="card-text">{producto.description}</p>
-                {/* <Link to={`/product/${producto.title}`} className="btn btn-light">Ver detalles </Link> */}
+                 <Link to={`/product/${producto.title}`} className="btn btn-dark">Ver detalles </Link> 
             </div>
     </div>
 

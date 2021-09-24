@@ -26,7 +26,7 @@ const NavBar = ({categorias}) => {
         <Link to="/" className="nav-link" activeclassname="active" aria-current="page">  Inicio </Link>
         </li>
         <li className="nav-item">
-        <NavLink to={"/About"} className="nav-link"  activeclassname="active" aria-current="page">  Nuestra historia </NavLink>
+        <NavLink to={"/About"} className="nav-link"  activeclassname="active" aria-current="page">  About </NavLink>
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" activeclassname="active" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,9 +34,9 @@ const NavBar = ({categorias}) => {
           </a>
           <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-            <Link to={"/Category/:name"}> </Link>
             
-            {categorias.map(categoria => <NavLink key={categoria.id} to={`/category/${categoria.name}`} className="dropdown-item"></NavLink>)}
+            
+          {categorias.map(categoria => <NavLink key={categoria.id} to={`/category/${categoria.name}`} className="dropdown-item">{categoria.name}</NavLink>)}
           </ul>
         </li>
       </ul>

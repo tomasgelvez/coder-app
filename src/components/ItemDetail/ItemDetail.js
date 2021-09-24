@@ -15,12 +15,14 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 const ItemDetail = ({products}) => {
 
     if(!products ){
-        return <h3>Ya no hay productos</h3>
+        return <h3>Cargando ultimos detalles...</h3>
     }
 
     return(
         <>
-            <div className="card" id={products.id} style={{width: '18rem'}}>
+
+            <div className="card d-flex " id={products.id} style={{width: '18rem'}}>
+
                 <img className="card-img-top" src={products.imagen} alt="Card"></img>
                     <div className="card-body">
                         <h5 className="card-title">{products.title}</h5>
@@ -32,10 +34,13 @@ const ItemDetail = ({products}) => {
 
                         </ul>
                             <div className="card-body">
-                                <a href="#" className="card-link">Comprar</a>
-                                <a href="#" className="card-link">Cancelar</a>
+                            <button className="btn btn-dark">Comprar</button>
+                            <span></span>
+                            <button className="btn btn-dark">Cancelar</button> 
+                            
                             </div>
             </div>
+
         </>
     )
 }
