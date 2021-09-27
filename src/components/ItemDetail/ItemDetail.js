@@ -30,11 +30,7 @@ const ItemDetail = ({products,productsAdded,addProdFunction}) => {
 
                         </ul>
                             <ItemCount products={products} productsAdded={productsAdded} addProdFunction={addProdFunction}/>
-                            <div className="card-body">
-                                <button className="btn btn-dark"  >Comprar</button>
-
-                                <button className="btn btn-dark">Cancelar</button>
-                            </div>
+                            
             </div>
             </div>
             </div>

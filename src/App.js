@@ -34,10 +34,10 @@ function App() {
             <Category />
           </Route>
           <Route path="/product/:title">
-            <ItemDetailContainer />
+            <ItemDetailContainer productsAdded={cartProducts} addProdFunction={setCartProduct} />
           </Route>
           <Route path="/cart">
-            <Cart productsAdded={cartProducts} addProdFunction={setCartProduct}/>
+            <Cart  productsAdded={cartProducts} addProdFunction={setCartProduct}/>
           </Route>
         </Switch>
       </BrowserRouter>

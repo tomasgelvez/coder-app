@@ -1,8 +1,6 @@
- import './NavBar.css';
-import Logo from '../CartWidget/cartWidget'; 
+import './NavBar.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import Count from '../Count/Count.js'
 import '../CartWidget/cartWidget.css'
 import {Link, NavLink} from 'react-router-dom'
 import CartWidget from '../CartWidget/cartWidget';
@@ -15,8 +13,11 @@ const NavBar = ({categorias}) => {
         <div className="container-fluid ">
           <img src="../img/logo.png" style={{width:'300px'}} alt=""></img>
         <a className="navbar-brand" >
-          <CartWidget/>
-          <Count />
+        <Link to='/cart'>
+          <CartWidget  />
+        </Link>
+         
+          
         </a> 
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
