@@ -6,7 +6,7 @@ import ItemCount from "../ItemCount/ItemCount";
 
 
 //Comienza el componente
-const ItemDetail = ({products}) => {
+const ItemDetail = ({products,productsAdded,addProdFunction}) => {
 
 
     if(!products ){
@@ -29,7 +29,7 @@ const ItemDetail = ({products}) => {
                             <li className="list-group-item">{products.stock}</li>
 
                         </ul>
-                            <ItemCount products={products} />
+                            <ItemCount products={products} productsAdded={productsAdded} addProdFunction={addProdFunction}/>
                             <div className="card-body">
                                 <button className="btn btn-dark"  >Comprar</button>
 

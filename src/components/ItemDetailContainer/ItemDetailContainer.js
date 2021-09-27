@@ -24,7 +24,7 @@ const getProduct = () => {
 }
 
 //Comienza el componente
-function ItemDetailContainer() {
+function ItemDetailContainer({productsAdded,addProdFunction}) {
     const { title } = useParams()
     const [products, setProducts] = useState(undefined)
     useEffect(() => {
@@ -40,7 +40,7 @@ function ItemDetailContainer() {
 
     return (
         <>
-            <ItemDetail products={products}  />
+            <ItemDetail products={products}  productsAdded={productsAdded} addProdFunction={addProdFunction}/>
         </>
     );
 }

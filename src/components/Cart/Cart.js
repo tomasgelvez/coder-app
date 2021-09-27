@@ -1,15 +1,14 @@
+import ItemList from "../itemList/ItemList"
 
 
 
+const Cart = ({ productsAdded, addProdFunction }) => {
+    return <div>
+        <h1>Cart</h1>
+        <button onClick={() => addProdFunction([])} className="Button">Cancelar compra</button>
+        <ItemList products={productsAdded} />
 
-const Cart = () => {
-    return(
-        <div>
-            <h1>Cart</h1>
-
-        </div>
-    )
+    </div>
 }
-
 
 export default Cart

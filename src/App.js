@@ -1,4 +1,3 @@
-
 import './App.css';
 import NavBar from '../src/components/NavBar/NavBar.js'
 import Home from './components/views/Home';
@@ -7,9 +6,11 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import About from './components/views/About'
 import Category from './components/views/Category'
 import Cart from './components/Cart/Cart';
+import {useState} from 'react'
 
 
 function App() {
+  const [cartProducts, setCartProduct] = useState([])
 
   const categorias = [
   {id: 1, name:"Televisores"},
@@ -36,7 +37,7 @@ function App() {
             <ItemDetailContainer />
           </Route>
           <Route path="/cart">
-            <Cart />
+            <Cart productsAdded={cartProducts} addProdFunction={setCartProduct}/>
           </Route>
         </Switch>
       </BrowserRouter>

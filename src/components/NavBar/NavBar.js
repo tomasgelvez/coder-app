@@ -5,6 +5,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import Count from '../Count/Count.js'
 import '../CartWidget/cartWidget.css'
 import {Link, NavLink} from 'react-router-dom'
+import CartWidget from '../CartWidget/cartWidget';
 
 
 const NavBar = ({categorias}) => {
@@ -12,9 +13,9 @@ const NavBar = ({categorias}) => {
     return(
         <nav className="navbar navbar-pills navbar-light bg-light h-25">
         <div className="container-fluid ">
-        <Logo/>
-        <a className="navbar-brand ">
-          <img src='../img/cart-dash.svg' alt = "carrito" width="50"  height="50"></img>
+          <img src="../img/logo.png" style={{width:'300px'}} alt=""></img>
+        <a className="navbar-brand" >
+          <CartWidget/>
           <Count />
         </a> 
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,9 +34,6 @@ const NavBar = ({categorias}) => {
             Productos
           </a>
           <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-
-            
-            
           {categorias.map(categoria => <NavLink key={categoria.id} to={`/category/${categoria.name}`} className="dropdown-item">{categoria.name}</NavLink>)}
           </ul>
         </li>

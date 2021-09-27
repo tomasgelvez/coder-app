@@ -2,15 +2,16 @@
 import './cartWidget.css'
 
 
-const Logo = () => {
+const CartWidget = () => {
     return(
         <div>
             <a href="/">
-                <img className= "logo" src = '/img/logo.png' alt= "" width="35%" height="35%"></img>
+
+                <img src='../img/cart-dash.svg' alt = "carrito" width="50"  height="50"></img>
             </a>
         </div>
     )
 }
 
 
-export default Logo;
+export default CartWidget;

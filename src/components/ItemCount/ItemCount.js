@@ -4,7 +4,7 @@ import { useState } from "react/cjs/react.development"
 
 
 
-const ItemCount = ({products}) =>{
+const ItemCount = ({products,addProdFunction,productsAdded}) =>{
     const [quantity, setQuantity] = useState(0)
 
     const onAdd = () => {
@@ -18,7 +18,15 @@ const ItemCount = ({products}) =>{
             setQuantity(quantity - 1)
         }     
     }
- 
+    const onAddtoCart = () =>{
+        const newProduct = {
+            ...products,
+            quantity: quantity
+        } 
+        addProdFunction([...productsAdded, newProduct])
+        
+    }
+
 
     return(
         <div align="center">
@@ -29,7 +37,9 @@ const ItemCount = ({products}) =>{
                         <td align="center">{quantity}</td>
                         <td align="right"><button className="Button" onClick={()=> onAdd() }>+</button></td>
                     </tr>
-                    
+                    <tr>
+                        <td align="center" colSpan="5"><button className="Button" onClick={()=>onAddtoCart()}>Agregar al carrito</button></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
