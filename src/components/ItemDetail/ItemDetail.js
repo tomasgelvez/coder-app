@@ -2,6 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { useState } from "react/cjs/react.development";
+import ItemCount from "../ItemCount/ItemCount";
 
 
 //Comienza el componente
@@ -28,10 +29,11 @@ const ItemDetail = ({products}) => {
                             <li className="list-group-item">{products.stock}</li>
 
                         </ul>
+                            <ItemCount products={products} />
                             <div className="card-body">
-                            <button className="btn btn-dark">Comprar</button>
-                            <span></span>
-                            <button className="btn btn-dark">Cancelar</button>
+                                <button className="btn btn-dark"  >Comprar</button>
+
+                                <button className="btn btn-dark">Cancelar</button>
                             </div>
             </div>
             </div>
