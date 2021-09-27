@@ -7,19 +7,6 @@ import { useState } from "react/cjs/react.development";
 //Comienza el componente
 const ItemDetail = ({products}) => {
 
-    const [cantidad, setCantidad] = useState(0)
-
-    const onAdd = () => {
-        if(cantidad < products.stock) {
-            setCantidad(cantidad+1)
-        }
-    }
-
-    const onRemove = () => {
-        if(cantidad > 0) {
-            setCantidad(cantidad - 1)
-        }     
-    }
 
     if(!products ){
         return <h3>Cargando ultimos detalles...</h3>

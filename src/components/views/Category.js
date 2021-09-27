@@ -25,7 +25,7 @@ const getProductList = () => {
 
 
 
-        setInterval(() => resolve(productos))
+        setTimeout(() => resolve(productos),2000)
     })
 }
 
@@ -53,6 +53,7 @@ function Category(){
         <>
             <div className="views container">
                 <h1>{name}</h1>
+                
                 <ItemList listProduct={products}/>
             </div>
         </>
