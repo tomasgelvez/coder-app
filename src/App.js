@@ -6,7 +6,8 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import About from './components/views/About'
 import Category from './components/views/Category'
 import Cart from './components/Cart/Cart';
-import {useState} from 'react'
+
+import {useState} from 'react';
 
 
 function App() {

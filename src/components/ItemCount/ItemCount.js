@@ -1,10 +1,11 @@
 import { useState } from "react/cjs/react.development"
 
+import {Link} from 'react-router-dom'
 
 
 
 
-const ItemCount = ({products,addProdFunction,productsAdded}) =>{
+const ItemCount = ({products,productsAdded,addProdFunction}) =>{
     const [quantity, setQuantity] = useState(0)
 
     const onAdd = () => {
@@ -16,15 +17,15 @@ const ItemCount = ({products,addProdFunction,productsAdded}) =>{
     const onRemove = () => {
         if(quantity > 0) {
             setQuantity(quantity - 1)
-        }   
+        }
     }
     const onAddtoCart = () =>{
         const newProduct = {
             ...products,
             quantity: quantity
         }
+        console.log(newProduct)
         addProdFunction([...productsAdded, newProduct])
-
     }
 
 

@@ -4,21 +4,26 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import '../CartWidget/cartWidget.css'
 import {Link, NavLink} from 'react-router-dom'
 import CartWidget from '../CartWidget/cartWidget';
+import { useState,useEffect } from 'react';
+
 
 
 const NavBar = ({categorias}) => {
+    
+
+
 
     return(
         <nav className="navbar navbar-pills navbar-light bg-light h-25">
         <div className="container-fluid ">
           <img src="../img/logo.png" style={{width:'300px'}} alt=""></img>
-        <a className="navbar-brand" >
+        <a className="navbar-brand" href="" >
         <Link to='/cart'>
-          <CartWidget  />
+          <CartWidget/>
         </Link>
-         
-          
-        </a> 
+
+
+        </a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>

@@ -1,7 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import { useState } from "react/cjs/react.development";
 import ItemCount from "../ItemCount/ItemCount";
 
 
@@ -30,7 +29,7 @@ const ItemDetail = ({products,productsAdded,addProdFunction}) => {
 
                         </ul>
                             <ItemCount products={products} productsAdded={productsAdded} addProdFunction={addProdFunction}/>
-                            
+
             </div>
             </div>
             </div>
