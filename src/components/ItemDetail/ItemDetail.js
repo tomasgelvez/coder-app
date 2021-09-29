@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import ItemCount from "../ItemCount/ItemCount";
@@ -6,7 +6,8 @@ import ItemCount from "../ItemCount/ItemCount";
 
 //Comienza el componente
 const ItemDetail = ({products,productsAdded,addProdFunction}) => {
-
+    
+    const [count, setCount] = useState(0)
 
     if(!products ){
         return <h3>Cargando ultimos detalles...</h3>
@@ -28,7 +29,7 @@ const ItemDetail = ({products,productsAdded,addProdFunction}) => {
                             <li className="list-group-item">{products.stock}</li>
 
                         </ul>
-                            <ItemCount products={products} productsAdded={productsAdded} addProdFunction={addProdFunction}/>
+                            <ItemCount products={products} productsAdded={productsAdded} addProdFunction={addProdFunction} setCount={setCount}/>
 
             </div>
             </div>

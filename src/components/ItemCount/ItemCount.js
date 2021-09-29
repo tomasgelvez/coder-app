@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 
 
 
-const ItemCount = ({products,productsAdded,addProdFunction}) =>{
+const ItemCount = ({products,productsAdded,addProdFunction,setCount}) =>{
     const [quantity, setQuantity] = useState(0)
 
     const onAdd = () => {
@@ -26,6 +26,9 @@ const ItemCount = ({products,productsAdded,addProdFunction}) =>{
         }
         console.log(newProduct)
         addProdFunction([...productsAdded, newProduct])
+        setCount(quantity)
+
+        setTimeout(() => setQuantity(0),2000)
         
     }
 
@@ -40,7 +43,7 @@ const ItemCount = ({products,productsAdded,addProdFunction}) =>{
                         <td align="right"><button className="Button" onClick={() => onAdd() }>+</button></td>
                     </tr>
                     <tr><td align="center" colSpan="5">
-                        <Link to="/cart"><td ><button className="btn btn-dark" onClick={()=>onAddtoCart()}>Agregar al carrito</button></td></Link>
+                       <td ><button className="btn btn-dark" onClick={()=>onAddtoCart()}>Agregar al carrito</button></td>
                         </td>
                     </tr>
 
