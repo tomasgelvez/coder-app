@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import ItemCount from "../ItemCount/ItemCount";
+import CartContext from '../../context/CartContex'
 
 
 //Comienza el componente
 const ItemDetail = ({products,productsAdded,addProdFunction}) => {
-    
+    const {removeItem} = useContext(CartContext)
+    console.log(removeItem)
     const [count, setCount] = useState(0)
 
     if(!products ){

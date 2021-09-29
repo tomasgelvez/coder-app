@@ -8,11 +8,12 @@ import Category from './components/views/Category'
 import Cart from './components/Cart/Cart';
 
 import {useState} from 'react';
+import { CartContextProvider } from './context/CartContex';
 
 
 
 function App() {
-  const [cartProducts, setCartProduct] = useState([])
+  const [cartProducts, setCartProducts] = useState([])
 
   const categorias = [
   {id: 1, name:"Televisores"},
@@ -23,28 +24,29 @@ function App() {
 
   return (
     <div className="App">
-      
- <BrowserRouter>
-      <NavBar categorias={categorias}/>
-        <Switch>
-          <Route exact path ="/">
-          <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/category/:name">
-            <Category />
-          </Route>
-          <Route path="/product/:title">
-            <ItemDetailContainer productsAdded={cartProducts} addProdFunction={setCartProduct} />
-          </Route>
-          <Route path="/cart">
-            <Cart  productsAdded={cartProducts} addProdFunction={setCartProduct}/>
-          </Route>
+   <CartContextProvider>
+      <BrowserRouter>
+        <NavBar categorias={categorias}/>
+          <Switch>
+            <Route exact path ="/">
+              <Home />
+            </Route>
+            <Route path="/about">
+                <About />
+            </Route>
+            <Route path="/category/:name">
+                <Category />
+            </Route>
+            <Route path="/product/:title">
+                <ItemDetailContainer productsAdded={cartProducts} addProdFunction={setCartProducts} />
+            </Route>
+            <Route path="/cart">
+               <Cart  productsAdded={cartProducts} addProdFunction={setCartProducts}/>
+            </Route>
         </Switch>
-</BrowserRouter>
-      
+    </BrowserRouter>
+  </CartContextProvider>
+
 
     </div>
   );
