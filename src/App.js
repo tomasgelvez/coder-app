@@ -8,7 +8,7 @@ import Category from './components/views/Category'
 import Cart from './components/Cart/Cart';
 
 import {useState} from 'react';
-import { CartContextProvider } from './context/cartContext';
+
 
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
       
-           <BrowserRouter>
+ <BrowserRouter>
       <NavBar categorias={categorias}/>
         <Switch>
           <Route exact path ="/">
@@ -43,7 +43,7 @@ function App() {
             <Cart  productsAdded={cartProducts} addProdFunction={setCartProduct}/>
           </Route>
         </Switch>
-      </BrowserRouter>
+</BrowserRouter>
       
 
     </div>

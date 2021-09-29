@@ -28,7 +28,7 @@ const ItemCount = ({products,productsAdded,addProdFunction,setCount}) =>{
         addProdFunction([...productsAdded, newProduct])
         setCount(quantity)
 
-        setTimeout(() => setQuantity(0),2000)
+        setTimeout(() => setQuantity(0),1000)
         
     }
 

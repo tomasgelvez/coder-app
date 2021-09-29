@@ -7,7 +7,7 @@ function Home  () {
         <>
 
             <div className="views container pb-4">
-                <h1>Producto online</h1>
+                <h1 className="pb-4">Producto online</h1>
                 <ItemListContainer/>
             </div>
 
