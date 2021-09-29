@@ -26,6 +26,7 @@ const ItemCount = ({products,productsAdded,addProdFunction}) =>{
         }
         console.log(newProduct)
         addProdFunction([...productsAdded, newProduct])
+        
     }
 
 
@@ -38,8 +39,9 @@ const ItemCount = ({products,productsAdded,addProdFunction}) =>{
                         <td align="center" style={{fontSize : '20px'}}>{quantity}</td>
                         <td align="right"><button className="Button" onClick={() => onAdd() }>+</button></td>
                     </tr>
-                    <tr>
-                        <td align="center" colSpan="5"><button className="btn btn-dark" onClick={()=>onAddtoCart()}>Agregar al carrito</button></td>
+                    <tr><td align="center" colSpan="5">
+                        <Link to="/cart"><td ><button className="btn btn-dark" onClick={()=>onAddtoCart()}>Agregar al carrito</button></td></Link>
+                        </td>
                     </tr>
 
                 </tbody>
