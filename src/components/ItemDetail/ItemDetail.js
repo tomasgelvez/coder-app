@@ -7,13 +7,14 @@ import CartContext from '../../context/CartContex'
 
 //Comienza el componente
 const ItemDetail = ({products,productsAdded,addProdFunction}) => {
-    const {removeItem} = useContext(CartContext)
-    console.log(removeItem)
+    
+    
     const [count, setCount] = useState(0)
 
     if(!products ){
         return <h3>Cargando ultimos detalles...</h3>
     }
+
 
     return(
         <>

@@ -21,11 +21,11 @@ export const CartContextProvider = ({children}) => {
         if(!isInCart(item.id)){
             setProducts([...products, newProduct])
         }else{
-            const newProducts = products.map(prod =>{
+            const newProducts = products.map(prod =>{   
                 if(prod.id === item.id){
                     const newProduct ={
                         ...prod,
-                        quantity:quantity
+                        quantity:  quantity 
                     }
                     return newProduct
                 }else{
@@ -72,7 +72,7 @@ export const CartContextProvider = ({children}) => {
 
     return(
         <CartContext.Provider 
-        value={{addItem,removeItem,clear,isInCart,getQuantity,getProduct,getTotal}}
+        value={{products,addItem,removeItem,clear,isInCart,getQuantity,getProduct,getTotal}}
         >
             {children}
         </CartContext.Provider>

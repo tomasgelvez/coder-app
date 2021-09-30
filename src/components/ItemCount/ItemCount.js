@@ -7,10 +7,10 @@ import CartContext from "../../context/CartContex"
 
 
 
-const ItemCount = ({products,setCount}) =>{
+const ItemCount = ({products,setCount,addProdFunction,productsAdded}) =>{
     const {addItem,isInCart,getProduct} = useContext(CartContext)
     const [quantity, setQuantity] = useState(0)
-    const { setNotification } = useContext(NotificationContext)
+    
 
 
     useEffect(() => {
@@ -35,16 +35,25 @@ const ItemCount = ({products,setCount}) =>{
         }
     }
     const onAddtoCart = () =>{
+        /* const newProduct = {
+            ...products,
+            quantity: quantity
+        } 
+        addProdFunction([...productsAdded, newProduct]) */
+        setCount(quantity)
         addItem(products,quantity)
-         setCount(quantity)
-         setNotification('success', `${products.name} ha sido agregado al carrito`)
-
+        console.log(products)
+        console.log(quantity)
+        
+         
+         
+            
         setTimeout(() =>{
 
             setQuantity(0)
 
-        } ,1000);
-        
+        } ,1000); 
+
     }
 
 
@@ -58,8 +67,9 @@ const ItemCount = ({products,setCount}) =>{
                         <td align="right"><button className="Button" onClick={() => onAdd() }>+</button></td>
                     </tr>
                     <tr>
-                       <td align="center" colSpan="5"><button className="btn btn-dark" onClick={()=>onAddtoCart()}>Agregar al carrito</button></td>
-                        
+                        <td align="center">
+                       <button className="btn btn-dark" onClick={()=>onAddtoCart()}>Agregar al carrito</button>
+                       </td>
                     </tr>
 
                 </tbody>
