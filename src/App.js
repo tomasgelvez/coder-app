@@ -9,6 +9,7 @@ import Cart from './components/Cart/Cart';
 
 import {useState} from 'react';
 import { CartContextProvider } from './context/CartContex';
+import { NotificationContextProvider } from './context/NotificacionContext';
 
 
 
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <div className="App">
+  <NotificationContextProvider>
    <CartContextProvider>
       <BrowserRouter>
         <NavBar categorias={categorias}/>
@@ -46,7 +48,7 @@ function App() {
         </Switch>
     </BrowserRouter>
   </CartContextProvider>
-
+  </NotificationContextProvider>
 
     </div>
   );

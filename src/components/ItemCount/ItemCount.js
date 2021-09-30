@@ -1,5 +1,5 @@
-import { useState } from "react/cjs/react.development"
-
+import { useState,useEffect } from "react/cjs/react.development"
+import  NotificationContext  from "../../context/NotificacionContext"
 import {Link} from 'react-router-dom'
 import { useContext } from "react"
 import CartContext from "../../context/CartContex"
@@ -7,9 +7,21 @@ import CartContext from "../../context/CartContex"
 
 
 
-const ItemCount = ({products,productsAdded,addProdFunction,setCount}) =>{
-    const {addItem} = useContext(CartContext)
+const ItemCount = ({products,setCount}) =>{
+    const {addItem,isInCart,getProduct} = useContext(CartContext)
     const [quantity, setQuantity] = useState(0)
+    const { setNotification } = useContext(NotificationContext)
+
+
+    useEffect(() => {
+        if(isInCart(products.id)) {
+           const oldQuantity = getProduct(products.id)?.quantity
+           setQuantity(oldQuantity)
+        }
+        return(() => {
+            setQuantity(0)
+        })
+    }, [products, getProduct, isInCart])
 
     const onAdd = () => {
         if(quantity < products.stock) {
@@ -23,22 +35,19 @@ const ItemCount = ({products,productsAdded,addProdFunction,setCount}) =>{
         }
     }
     const onAddtoCart = () =>{
-        const newProduct = {
-            ...products,
-            quantity: quantity
-        }
-        console.log(newProduct)
-        addProdFunction([...productsAdded, newProduct])
-        setCount(quantity)
+        addItem(products,quantity)
+         setCount(quantity)
+         setNotification('success', `${products.name} ha sido agregado al carrito`)
+
         setTimeout(() =>{
 
             setQuantity(0)
 
         } ,1000);
-        addItem(console.log('agregue algo'))
+        
     }
 
-console.log(addItem)
+
     return(
         <div align="center">
             <table >

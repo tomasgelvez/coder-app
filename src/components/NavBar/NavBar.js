@@ -5,11 +5,13 @@ import '../CartWidget/cartWidget.css'
 import {Link, NavLink} from 'react-router-dom'
 import CartWidget from '../CartWidget/cartWidget';
 import { useState,useEffect } from 'react';
+import { useContext } from 'react/cjs/react.development';
+import CartContext from '../../context/CartContex';
 
 
 
 const NavBar = ({categorias}) => {
-    
+    const {getQuantity} = useContext(CartContext)
 
 
 
@@ -19,6 +21,7 @@ const NavBar = ({categorias}) => {
           <img src="../img/logo.png" style={{width:'300px'}} alt=""></img>
         <a className="navbar-brand" href="" >
         <Link to='/cart'>
+          {getQuantity}
           <CartWidget/>
         </Link>
 

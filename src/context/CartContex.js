@@ -8,47 +8,35 @@ const CartContext = React.createContext();
 
 
 export const CartContextProvider = ({children}) => {
-    const [productsPrice , setproductsPrice] = useState(0)
-    const [cartQuantity, setCartQuantity] = useState(0)
-    const [products, setProducts] = useState([])
+    const [products,setProducts] = useState([])
+    
+    const addItem = (item,quantity) => {
+        
+        const newProduct = {
+            ...item,
+            quantity: quantity
 
-    const addItem  = (products, quantity) =>{
-        const quantityCart = quantity + cartQuantity
-        const priceP = productsPrice + (quantity * products.price)
-        if(products.stock >= quantityCart){
-            const cartProductsId = products.map(itemCart => itemCart.id)
+        }
 
-            if(cartProductsId.includes(products.id)){
-                const cartProductsReload = products.map((i) => {
-
-                    if(i.id === products.id){
-                        let quantityOld = i.quantityItem
-                        return{
-                            ...i,
-                            quantityItem : quantity + quantityOld
-                        }
-
-                    }else{
-                        return i
+        if(!isInCart(item.id)){
+            setProducts([...products, newProduct])
+        }else{
+            const newProducts = products.map(prod =>{
+                if(prod.id === item.id){
+                    const newProduct ={
+                        ...prod,
+                        quantity:quantity
                     }
-                })
-                setProducts(cartProductsReload)
-                setCartQuantity(quantityCart)
-                setproductsPrice(priceP)
-            }else{
-                const newItem = {
-                ...products,
-                quantityItem : quantity
-                } 
-                setProducts([...products, newItem])
-                setCartQuantity(quantityCart)
-                setproductsPrice(priceP)
-            }
-        }/* else{
-            alert("No hay mas stock")
-        } */
-    }
+                    return newProduct
+                }else{
+                    return prod
+                }
+            } )
 
+            setProducts(newProducts)
+        }
+
+    }
 
     const removeItem = (id) => {
         const newProduct = products.filter(element => element.id !== id)
@@ -59,15 +47,32 @@ export const CartContextProvider = ({children}) => {
         setProducts([])
     }
     const isInCart = (id) => {
-        products.forEach(element => {
-            if(element.id === id)return true
+        return products.some(prod => prod.id === id)
+    }
+
+    const getTotal = () => {
+        let total = 0
+        products.forEach(prod => {
+            total = total + prod.price + prod.quantity
         })
-        return false
+        return total
+    }
+
+    const getProduct = (id) => {
+        return products.find(prod => prod.id === id)
+    }
+
+    const getQuantity = () =>{
+        let count = 0
+        products.forEach(prod => {
+            count = count + prod.quantity
+        })
+        return count
     }
 
     return(
         <CartContext.Provider 
-        value={{addItem,removeItem,clear,isInCart}}
+        value={{addItem,removeItem,clear,isInCart,getQuantity,getProduct,getTotal}}
         >
             {children}
         </CartContext.Provider>
