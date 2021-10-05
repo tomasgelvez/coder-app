@@ -5,10 +5,10 @@ import Item  from '../item/Item.js'
 
 
 
-const ItemList = ({listProduct}) => {
+const ItemList = ({products}) => {
 
 
-    if(listProduct?.length === 0){
+    if(products?.length === 0){
         return <h3>Cargando stock...</h3>
     }
 
@@ -20,10 +20,10 @@ const ItemList = ({listProduct}) => {
         <>
         <div className="container d-flex justify-content-center aling-items-center ">
 	        <div className="row">
-                {listProduct?.map(producto =>
+                {products?.map(products =>
                 (
-                    <div className = "col-md-6" key={producto.id}>
-                        <Item producto={producto} />
+                    <div className = "col-md-6" >
+                        <Item key={products.id} products={products} />
                     </div>
                 ))}
             </div>

@@ -1,8 +1,10 @@
 
-import './cartWidget.css'
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import CartContext from '../../context/CartContex';
+import './cartWidget.css'
+
+//Aca es donde creo el carrito de compras
 
 
 const CartWidget = () => {

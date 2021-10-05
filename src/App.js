@@ -1,15 +1,14 @@
+import {useState} from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import './App.css';
 import NavBar from '../src/components/NavBar/NavBar.js'
-import Home from './components/views/Home';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import About from './components/views/About'
 import Category from './components/views/Category'
 import Cart from './components/Cart/Cart';
-
-import {useState} from 'react';
 import { CartContextProvider } from './context/CartContex';
-import { NotificationContextProvider } from './context/NotificacionContext';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+
 
 
 
@@ -25,13 +24,13 @@ function App() {
 
   return (
     <div className="App">
-  <NotificationContextProvider>
+  
    <CartContextProvider>
       <BrowserRouter>
         <NavBar categorias={categorias}/>
           <Switch>
             <Route exact path ="/">
-              <Home />
+              <ItemListContainer/>
             </Route>
             <Route path="/about">
                 <About />
@@ -43,12 +42,12 @@ function App() {
                 <ItemDetailContainer productsAdded={cartProducts} addProdFunction={setCartProducts} />
             </Route>
             <Route path="/cart">
-               <Cart  productsAdded={cartProducts} addProdFunction={setCartProducts}/>
+               <Cart productsAdded={cartProducts} addProdFunction={setCartProducts}/>
             </Route>
         </Switch>
     </BrowserRouter>
   </CartContextProvider>
-  </NotificationContextProvider>
+  
 
     </div>
   );

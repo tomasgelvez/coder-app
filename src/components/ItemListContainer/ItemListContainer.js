@@ -7,7 +7,7 @@ import ItemList from '../itemList/ItemList'
 
 
 
-const productos = [
+const products = [
 
     {id: '3', imagen:'../img/televisor3.png' , category: 'Televisores' ,title: 'Televisor SmarTV' , description: 'Televisor led, ultima generacion' , stock: 'Stock: 11' , price: 'Precio : 25000'},
     {id: '4', imagen:'../img/televisor4.png' , category: 'Televisores' ,title: 'Televisor SONY 65 pulgadas' , description: 'Televisor led, ultima generacion' , stock: 'Stock: 11' , price: 'Precio : 25000'},
@@ -29,7 +29,7 @@ const productos = [
 function getList() {
     return new Promise((resolve) =>{
          
-        setTimeout(() => resolve(productos),2000)
+        setTimeout(() => resolve(products),2000)
     } )
 
 
@@ -38,13 +38,13 @@ function getList() {
 
 
 function  ItemListContainer (){
-    const [listProduct, setProductos] = useState ([])
+    const [products, setProducts] = useState ([])
     
 
     useEffect(() => {
         const list = getList()
         list.then(list => {
-            setProductos(list)
+            setProducts(list)
         })
     },[])
 
@@ -53,9 +53,9 @@ function  ItemListContainer (){
     return(
 
         <div>
-            <ItemList listProduct = {listProduct} />
+            <ItemList products = {products} />
         </div>
-        
+
 
     )
 }

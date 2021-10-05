@@ -1,19 +1,19 @@
-import React, { useContext } from "react";
-import { useState } from "react";
+
+import { useState,createContext } from "react";
 
 
 
 
-const CartContext = React.createContext();
+const CartContext = createContext();
 
 
 export const CartContextProvider = ({children}) => {
     const [products,setProducts] = useState([])
-    
+    console.log(products)
     const addItem = (item,quantity) => {
-        
+        console.log(item)
         const newProduct = {
-            ...item,
+            ...products,
             quantity: quantity
 
         }
@@ -21,11 +21,11 @@ export const CartContextProvider = ({children}) => {
         if(!isInCart(item.id)){
             setProducts([...products, newProduct])
         }else{
-            const newProducts = products.map(prod =>{   
+            const newProducts = products.map(prod =>{
                 if(prod.id === item.id){
                     const newProduct ={
                         ...prod,
-                        quantity:  quantity 
+                        quantity:  quantity
                     }
                     return newProduct
                 }else{
@@ -53,7 +53,7 @@ export const CartContextProvider = ({children}) => {
     const getTotal = () => {
         let total = 0
         products.forEach(prod => {
-            total = total + prod.price + prod.quantity
+            total =  total +prod.price + prod.quantity
         })
         return total
     }
@@ -72,7 +72,15 @@ export const CartContextProvider = ({children}) => {
 
     return(
         <CartContext.Provider 
-        value={{products,addItem,removeItem,clear,isInCart,getQuantity,getProduct,getTotal}}
+        value={{products
+            ,addItem
+            ,removeItem
+            ,clear
+            ,isInCart
+            ,getQuantity
+            ,getProduct
+            ,getTotal
+        }}
         >
             {children}
         </CartContext.Provider>

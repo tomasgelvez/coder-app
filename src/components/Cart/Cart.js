@@ -3,46 +3,54 @@ import CartContext from "../../context/CartContex"
 import { useContext, useEffect,useState } from "react"
 
 
+//Aca creo el componente Cart
 
-const Cart = ({item}) => {
-    console.log(item)
-    
-    const [total, setTotal] = useState()
-    
-    const { getTotal,removeItem,addItem } = useContext(CartContext)
-    
-    useEffect(() => {
+const Cart = ({products}) => {
+    console.log(products)
+
+/*     const [total, setTotal] = useState() */
+    const { removeItem } = useContext(CartContext)
+
+//Aca muestro el total
+    /* useEffect(() => {
         setTotal(getTotal())
-    }, [getTotal])
+    }, [getTotal]) */
 
-    
-debugger
+
+//Aca dibujo la cart, con su respectiva informacion(id,precio, cantidad,nombre e img)
     return (
 
-    <div className="contenedorItem" id={item?.id}>
-        
-        <div className="contenedorItemContenido">
-            <div className="contenedorItemContenidoImg">
-                <img src={item?.imagen} alt={item?.name}/>
+    <div>
+
+        <div >
+            <div id={products?.id}>
+            <div >
+                <img src={products?.imagen} alt={products?.name}/>
             </div>
-                <div className="contenedorItemContenidoDetalles">
-                    <div className="contenedorItemTitulo">
-                        <p>{item?.name}</p>
+                <div >
+
+                    <div >
+                        <p>{products?.name}</p>
                     </div>
                 </div>
-                    <div className="contenedorItemDetail">
-                        <div className="contenedorItemDetailPrecio">
-                            <p>Precio : {item?.price}</p>
+                    <div >
+                        <div >
+                            <p>Precio : {products?.price}</p>
                         </div>
-                        
-                        <button className="btn btn-warning" function={()=>removeItem(item?.id, item?.price, item?.quantity)} label="Sacar">X</button>
+
+                        <button function={()=>removeItem(products?.id, products?.price, products?.quantity)}>X</button>
                     </div>
-                    <div className="contenedorItemStock">
-                        <p>Cantidad a comprar : {item?.quantity}</p>
+                    <div >
+                        <p>Cantidad a comprar : {products?.quantity}</p>
+                    </div>
+                    <div >
+                        <p> </p>
+                    </div>
                     </div>
     </div>
+
 </div>
-    
+
     )
 }
 

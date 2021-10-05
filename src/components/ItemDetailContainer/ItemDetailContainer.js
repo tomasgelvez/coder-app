@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from "../ItemDetail/ItemDetail";
-
+//Aca creo la promise para el detalle de mi producto
 const getProduct = () => {
     return new Promise((resolve,reject) =>{
         const productos = [
@@ -37,10 +37,10 @@ function ItemDetailContainer({productsAdded,addProdFunction}) {
         setProducts(undefined)
     })
     }, [title])
-
+//Aca le paso a itemDetail las props.
     return (
         <>
-            <ItemDetail products={products}  productsAdded={productsAdded} addProdFunction={addProdFunction}/>
+            <ItemDetail products={products} tile={title}productsAdded={productsAdded} addProdFunction={addProdFunction}/>
         </>
     );
 }

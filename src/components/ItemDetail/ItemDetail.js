@@ -7,8 +7,7 @@ import CartContext from '../../context/CartContex'
 
 //Comienza el componente
 const ItemDetail = ({products,productsAdded,addProdFunction}) => {
-    
-    
+
     const [count, setCount] = useState(0)
 
     if(!products ){
@@ -32,7 +31,7 @@ const ItemDetail = ({products,productsAdded,addProdFunction}) => {
                             <li className="list-group-item">{products.stock}</li>
 
                         </ul>
-                            <ItemCount products={products} productsAdded={productsAdded} addProdFunction={addProdFunction} setCount={setCount}/>
+                            <ItemCount products={products} setCount={setCount}/>
 
             </div>
             </div>
@@ -44,3 +43,4 @@ const ItemDetail = ({products,productsAdded,addProdFunction}) => {
 
 
 export default ItemDetail
+
