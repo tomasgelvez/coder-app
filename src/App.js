@@ -13,7 +13,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 
 
 function App() {
-  const [cartProducts, setCartProducts] = useState([])
+  /* const [cartProducts, setCartProducts] = useState([]) */
 
   const categorias = [
   {id: 1, name:"Televisores"},
@@ -39,10 +39,10 @@ function App() {
                 <Category />
             </Route>
             <Route path="/product/:title">
-                <ItemDetailContainer productsAdded={cartProducts} addProdFunction={setCartProducts} />
+                <ItemDetailContainer  />
             </Route>
             <Route path="/cart">
-               <Cart productsAdded={cartProducts} addProdFunction={setCartProducts}/>
+               <Cart />
             </Route>
         </Switch>
     </BrowserRouter>

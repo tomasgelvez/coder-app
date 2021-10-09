@@ -20,7 +20,6 @@ const getProductList = () => {
             {id: '19', imagen: '../img/heladera4.png', category: 'Heladeras',title: 'Heladera Kohinoor' , description: 'Heladera,ultima generacion' , stock: 'Stock: 21' , price: 'Precio : 45000'},
             {id: '20', imagen: '../img/heladera5.png', category: 'Heladeras',title: 'Heladera Whirpool' , description: 'Heladera,ultima generacion' , stock: 'Stock: 21' , price: 'Precio : 45000'}
 
-
         ]
 
 

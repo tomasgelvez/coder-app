@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import ItemCount from "../ItemCount/ItemCount";
-import CartContext from '../../context/CartContex'
+
 
 
 //Comienza el componente
@@ -28,7 +28,7 @@ const ItemDetail = ({products,productsAdded,addProdFunction}) => {
                     </div>
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item">{products.price}</li>
-                            <li className="list-group-item">{products.stock}</li>
+                            <li className="list-group-item">Stock :{products.stock}</li>
 
                         </ul>
                             <ItemCount products={products} setCount={setCount}/>

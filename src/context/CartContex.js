@@ -13,7 +13,7 @@ export const CartContextProvider = ({children}) => {
     const addItem = (item,quantity) => {
         console.log(item)
         const newProduct = {
-            ...products,
+            ...item,
             quantity: quantity
 
         }

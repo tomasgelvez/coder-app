@@ -1,6 +1,4 @@
 import { useState,useEffect } from "react/cjs/react.development"
-import  NotificationContext  from "../../context/NotificacionContext"
-import {Link} from 'react-router-dom'
 import { useContext } from "react"
 import CartContext from "../../context/CartContex"
 
@@ -85,7 +83,5 @@ const ItemCount = ({products,setCount}) =>{
         </div>
     )
 }
-
-
 
 export default ItemCount
