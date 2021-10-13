@@ -8,26 +8,21 @@ import Category from './components/views/Category'
 import Cart from './components/Cart/Cart';
 import { CartContextProvider } from './context/CartContex';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import { getCategories } from './products';
 
 
 
 
 function App() {
-  /* const [cartProducts, setCartProducts] = useState([]) */
+  
 
-  const categorias = [
-  {id: 1, name:"Televisores"},
-  {id: 2, name:"Celulares"},
-  {id: 3, name:"Lavarropa"},
-  {id: 4, name:"Heladeras"}
-]
 
   return (
     <div className="App">
-  
+
    <CartContextProvider>
       <BrowserRouter>
-        <NavBar categorias={categorias}/>
+        <NavBar categorias={getCategories()}/>
           <Switch>
             <Route exact path ="/">
               <ItemListContainer/>
@@ -47,7 +42,6 @@ function App() {
         </Switch>
     </BrowserRouter>
   </CartContextProvider>
-  
 
     </div>
   );

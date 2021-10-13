@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import ItemList from "../itemList/ItemList";
 
 const getProductList = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         const productos = [
 
             {id: '3', imagen:'../img/televisor3.png' , category: 'Televisores' ,title: 'Televisor SmarTV' , description: 'Televisor led, ultima generacion' , stock: 'Stock: 11' , price: 'Precio : 25000'},
@@ -52,7 +52,6 @@ function Category(){
         <>
             <div className="views container">
                 <h1>{name}</h1>
-                
                 <ItemList listProduct={products}/>
             </div>
         </>

@@ -53,7 +53,7 @@ export const CartContextProvider = ({children}) => {
     const getTotal = () => {
         let total = 0
         products.forEach(prod => {
-            total =  total +prod.price + prod.quantity
+            total = total + prod.price * prod.quantity
         })
         return total
     }

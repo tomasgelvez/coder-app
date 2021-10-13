@@ -65,7 +65,9 @@ const ItemCount = ({products,setCount}) =>{
                         <td align="left">
                             <button className="Button" onClick={()=> onRemove() }>-</button>
                         </td>
-                        <td align="center" style={{fontSize : '20px'}}>{quantity}</td>
+                        <td align="center" style={{fontSize : '20px'}}>
+                            {quantity}
+                        </td>
                         <td align="right">
                             <button className="Button" onClick={() => onAdd() }>+</button>
                         </td>

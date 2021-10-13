@@ -18,8 +18,8 @@ const NavBar = ({categorias}) => {
     return(
         <nav className="navbar navbar-pills navbar-light bg-light h-25">
         <div className="container-fluid ">
-          <img src="../img/logo.png" style={{width:'300px'}} alt=""></img>
-
+          <img src="../img/logo.jpg" style={{width:'100px'}} alt=""></img>
+          
         <Link to='/cart'>
           {getQuantity}
           <CartWidget/>
@@ -39,11 +39,14 @@ const NavBar = ({categorias}) => {
         <NavLink to={"/About"} className="nav-link"  activeclassname="active" aria-current="page">  About </NavLink>
         </li>
         <li className="nav-item dropdown">
-          
-          <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li>Productos</li>
-          {categorias.map(categoria => <NavLink key={categoria.id} to={`/category/${categoria.name}`} className="dropdown-item">{categoria.name}</NavLink>)}
+
+          <ul className="nav-item dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              
+                {categorias.map(categoria => <NavLink key={categoria.id} to={`/category/${categoria.name}`} className="dropdown-item">{categoria.name}</NavLink>)}
+            </li>
           </ul>
+
         </li>
       </ul>
     </div>
