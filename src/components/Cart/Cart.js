@@ -8,15 +8,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 //Aca creo el componente Cart
 
 const Cart = () => {
-
-
-    /* const [total, setTotal] = useState() */ 
+//Aca llamo del cartContext las funciones creadas.
     const { products,removeItem,getTotal } = useContext(CartContext)
-
-//Aca muestro el total
-       /* useEffect(() => {
-        setTotal(getTotal())
-    }, [getTotal])  */
 
 //Aca dibujo la cart, con su respectiva informacion(id,precio, cantidad,nombre e img)
     return (
@@ -51,7 +44,7 @@ const Cart = () => {
 
 
                 </div>
-
+                
             </>
             )
 
@@ -60,6 +53,7 @@ const Cart = () => {
         }
 
     </div>
+    
     <li className="list-group-item">Precio final:  ${getTotal()}</li>
 
                 </>

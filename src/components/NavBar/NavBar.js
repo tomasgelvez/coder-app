@@ -38,12 +38,12 @@ const NavBar = ({categorias}) => {
         <li className="nav-item">
         <NavLink to={"/About"} className="nav-link"  activeclassname="active" aria-current="page">  About </NavLink>
         </li>
+        
+        
         <li className="nav-item dropdown">
-
           <ul className="nav-item dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li>
-              
-                {categorias.map(categoria => <NavLink key={categoria.id} to={`/category/${categoria.name}`} className="dropdown-item">{categoria.name}</NavLink>)}
+                {categorias.map(categoria => <NavLink key={categoria.id} to={`/category/${categoria.title}`} className="dropdown-item">{categoria.name}</NavLink>)}
             </li>
           </ul>
 

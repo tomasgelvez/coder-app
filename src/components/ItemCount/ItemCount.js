@@ -5,26 +5,26 @@ import CartContext from "../../context/CartContex"
 
 //Empiezo el componente itemCount
 
-const ItemCount = ({products,setCount}) =>{
+const ItemCount = ({product,setCount}) =>{
     const {addItem,isInCart,getProduct} = useContext(CartContext)
     const [quantity, setQuantity] = useState(0)
     
 
 //Aca verifico si esta en el carrito que me lo muestre
     useEffect(() => {
-        if(isInCart(products.id)) {
-           const oldQuantity = getProduct(products.id)?.quantity
+        if(isInCart(product.id)) {
+           const oldQuantity = getProduct(product.id)?.quantity
            setQuantity(oldQuantity)
         }
         return(() => {
             setQuantity(0)
         })
-    }, [products, getProduct, isInCart])
+    }, [product, getProduct, isInCart])
 
 //Aca sumo un producto
 
     const onAdd = () => {
-        if(quantity < products.stock) {
+        if(quantity < product.stock) {
             setQuantity(quantity+1)
         }
     }
@@ -45,8 +45,8 @@ const ItemCount = ({products,setCount}) =>{
         } 
         addProdFunction([...productsAdded, newProduct]) */
         setCount(quantity)
-        addItem(products,quantity)
-        console.log(products)
+        addItem(product,quantity)
+        console.log(product)
         console.log(quantity)
         setTimeout(() =>{
 
