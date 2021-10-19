@@ -1,22 +1,21 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import ItemDetail from "../ItemDetail/ItemDetail";
-import { getProductById } from '../../Services/fireBase/firebase'
+import ItemDetail from '../ItemDetail/ItemDetail'
+import { db } from '../../Services/firebase/firebase'
+import { doc, getDoc } from 'firebase/firestore'
 
-
-
-//Comienza el componente
-function ItemDetailContainer({productsAdded,addProdFunction}) {
+const ItemDetailContainer = ({ productsAdded, addProdFunction }) => {
     const [product, setProduct] = useState(undefined)
     const [loading, setLoading] = useState(true)
     const {itemid} = useParams()
-
+    
     useEffect(() => {
         setLoading(true)
-        getProductById(itemid).then(product => {
+        getDoc(doc(db, 'items' , itemid)).then((querySnapshot) => {
+            const product = { id: querySnapshot.id, ...querySnapshot.data()}
             setProduct(product)
         }).catch((error) => {
-            console.log("hay error", error)
+            console.log('Error searching intems', error)
         }).finally(() => {
             setLoading(false)
         })
@@ -26,16 +25,10 @@ function ItemDetailContainer({productsAdded,addProdFunction}) {
         })
     },[itemid])
 
-
-//Aca le paso a itemDetail las props.
     return (
-        <>
-            {loading ? "Cargando.." : <ItemDetail products={product} itemid={itemid} productsAdded={productsAdded} addProdFunction={addProdFunction}/>}
-        </>
-    );
+        <div className='ItemDetailContainer' >
+            {loading ? "Loading.." : <ItemDetail product={product} itemid={itemid} productsAdded={productsAdded} addProdFunction={addProdFunction}/>}    
+        </div>
+    )
 }
-
-
-
-
 export default ItemDetailContainer

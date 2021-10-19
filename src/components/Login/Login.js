@@ -1,14 +1,12 @@
 import { useState, useContext } from 'react'
-import './Login.css'
 import UserContext from '../../context/UserContext'
-import NotificationContext from '../../context/NotificationContext'
+
 import { useHistory } from 'react-router-dom'
 
 const Login = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const { login } = useContext(UserContext)
-    const { setNotification } = useContext(NotificationContext)
     const history = useHistory()
 
     const handleLogin = (event) => {
@@ -20,16 +18,16 @@ const Login = () => {
         }
 
         login(objUser)
-        setNotification('success', `Bienvenido ${objUser.username}`)
+        console.log('success', `Bienvenido ${objUser.username}`)
         history.push('/')
     }
 
     return (
         <div className='LoginContainer'>
-          <h3>Log In</h3>
+          <h3>Bienvenido a nuestro Formulario de Ingreso</h3>
           <form onSubmit={handleLogin} className='LoginForm'>
             <label className='LabelLogin'>
-                Usuario
+                Nombre
               <input
                 className='InputLogin'
                 type='text'
@@ -38,10 +36,10 @@ const Login = () => {
               />
             </label>
             <label className='LabelLogin'>
-                Contraseña
+                Apellido
               <input
                 className='InputLogin'
-                type='password'
+                type='text'
                 value={password}
                 onChange={({ target }) => setPassword(target.value)}
               />

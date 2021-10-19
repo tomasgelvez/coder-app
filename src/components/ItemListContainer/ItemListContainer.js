@@ -1,41 +1,54 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ItemList from '../itemList/ItemList'
-import { getProducts } from '../../Services/fireBase/firebase'
+import { db } from "../../Services/firebase/firebase";
+import { collection, getDocs, query, where } from 'firebase/firestore'
 
 
-function  ItemListContainer (){
-    const [products, setProducts] = useState ([])
+const ItemListContainer = ()=> {
+    const [products, setProducts] = useState([])
     const {categoryid} = useParams()
     const [loading, setLoading] = useState(true)
-
-     useEffect(() => {
-        setLoading(true)
-        getProducts('category', '==', categoryid).then(products => {
-            setProducts(products)
-        }).catch((error) => {
-            console.log(error)
-        }).finally(() => {
-            setLoading(false)
-        })
-
+    
+    useEffect(() => {
+        if(!categoryid) {
+            setLoading(true)
+            getDocs(collection(db, 'items')).then((querySnapshot) => {
+                const products = querySnapshot.docs.map(doc => {
+                    return { id: doc.id, ...doc.data() }
+                }) 
+                setProducts(products)
+            }).catch((error) => {
+                console.log('Error searching intems', error)
+            }).finally(() => {
+                setLoading(false)
+            })
+        } else {
+            setLoading(true)
+            getDocs(query(collection(db, 'items'), where('category', '==', categoryid))).then((querySnapshot) => {
+                const products = querySnapshot.docs.map(doc => {
+                    return { id: doc.id, ...doc.data() }
+                }) 
+                setProducts(products)
+            }).catch((error) => {
+                console.log('Error searching items', error)
+            }).finally(() => {
+                setLoading(false)
+            })
+        }
+        
         return (() => {
             setLoading(true)
             setProducts([])
         })
     }, [categoryid])
 
-    console.log(products)
-    
-    return(
-
-        <div>
-            {loading ? "Cargando.." : <ItemList products = {products} />}
+    return (
+        <div className="ItemListContainer" >
+             { loading ? "Loading.." : <ItemList products={products}/> }
         </div>
-
-
-    )
+    )    
+    
 }
-
 
 export default ItemListContainer

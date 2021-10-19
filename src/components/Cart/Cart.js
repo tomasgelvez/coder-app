@@ -2,7 +2,9 @@ import CartContext from "../../context/CartContex"
 import { useContext,useEffect,useState } from "react"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-
+import { getDoc, Timestamp, writeBatch,doc, DocumentSnapshot, addDoc,collection} from "@firebase/firestore";
+import { db } from "../../Services/firebase/firebase";
+import UserContext from '../../context/UserContext'
 
 
 //Aca creo el componente Cart
@@ -10,7 +12,51 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 const Cart = () => {
 //Aca llamo del cartContext las funciones creadas.
     const { products,removeItem,getTotal,clear } = useContext(CartContext)
-    
+    const {processingOrder,setProcessingOrder} = useState(false)
+    const {user} = useContext(UserContext)
+
+    const confirmOrder = () =>{
+        setProcessingOrder(true)
+
+        const objOrder = {
+            buyer: user,
+            items: products,
+            total: getTotal(),
+            date: Timestamp.fromDate(new Date())
+        }
+
+        const batch = writeBatch(db)
+        const outOfStock = []
+
+        objOrder.items.forEach((prod,i) => {
+            getDoc(doc(db,'items', prod.id)).then(DocumentSnapshot => {
+                if(DocumentSnapshot.data().stock >= objOrder.items[i].quantity){
+                    batch.update(doc(db, 'items', DocumentSnapshot.id),{
+                        stock : DocumentSnapshot.data().stock - objOrder.items[i].quantity
+                    })
+                }else{
+                    outOfStock.push({...DocumentSnapshot.data(), id: DocumentSnapshot.id})
+                }
+            })
+        })
+
+
+        if(outOfStock.length === 0){
+            addDoc(collection(db, 'compras'), objOrder).then(() =>{
+                batch.commit().then(() => {
+                    console.log("La orden se ejecuto con exito")
+                })
+            }).catch((error) =>{
+                console.log("hay un error en el stock")
+            }).finally(() =>{
+                setProcessingOrder(false)
+                clear()
+            })
+        }
+    }
+
+
+
 
 //Aca dibujo la cart, con su respectiva informacion(id,precio, cantidad,nombre e img)
     return (

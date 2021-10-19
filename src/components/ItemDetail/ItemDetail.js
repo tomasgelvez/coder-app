@@ -2,11 +2,14 @@ import React, { useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import ItemCount from "../ItemCount/ItemCount";
+import UserContext from '../../context/UserContext.js'
+import {Link} from 'react-router-dom'
 
 
 
 //Comienza el componente
 const ItemDetail = ({product,productsAdded,addProdFunction}) => {
+    const {user} = useContext(UserContext)
 
     const [count, setCount] = useState(0)
 
@@ -31,8 +34,13 @@ const ItemDetail = ({product,productsAdded,addProdFunction}) => {
                             <li className="list-group-item">Stock :{product.stock}</li>
 
                         </ul>
-                            <ItemCount product={product} setCount={setCount}/>
-
+                        {
+            count === 0 && user
+                ? <ItemCount product={product} productsAdded={productsAdded} addProdFunction={addProdFunction} setCount={setCount} />
+                : user 
+                    ? <Link to='/cart'><button className="Button">Ir al carrito</button></Link>
+                    : <Link to='/login'><button className="Button">Login</button></Link>
+            }
             </div>
             </div>
             </div>
