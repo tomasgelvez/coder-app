@@ -8,6 +8,7 @@ const ItemDetailContainer = ({ productsAdded, addProdFunction }) => {
     const [product, setProduct] = useState(undefined)
     const [loading, setLoading] = useState(true)
     const {itemid} = useParams()
+
     
     useEffect(() => {
         setLoading(true)
@@ -27,7 +28,7 @@ const ItemDetailContainer = ({ productsAdded, addProdFunction }) => {
 
     return (
         <div className='ItemDetailContainer' >
-            {loading ? "Loading.." : <ItemDetail product={product} itemid={itemid} productsAdded={productsAdded} addProdFunction={addProdFunction}/>}    
+            {loading ? "Cargando.." : <ItemDetail product={product} itemid={itemid} productsAdded={productsAdded} addProdFunction={addProdFunction}/>}    
         </div>
     )
 }

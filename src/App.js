@@ -34,10 +34,10 @@ function App() {
             <Route path="/about">
                 <About />
             </Route>
-            <Route path="/category/:name">
+            <Route path="/category/:categoryid">
                 <Category />
             </Route>
-            <Route path="/product/:title">
+            <Route path="/product/:itemid">
                 <ItemDetailContainer  />
             </Route>
             <PrivateRoute path='/cart' user={user}>

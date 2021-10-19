@@ -10,7 +10,6 @@ import {Link} from 'react-router-dom'
 //Comienza el componente
 const ItemDetail = ({product,productsAdded,addProdFunction}) => {
     const {user} = useContext(UserContext)
-
     const [count, setCount] = useState(0)
 
     if(!product ){

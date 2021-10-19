@@ -14,6 +14,15 @@ const Cart = () => {
     const { products,removeItem,getTotal,clear } = useContext(CartContext)
     const {processingOrder,setProcessingOrder} = useState(false)
     const {user} = useContext(UserContext)
+    const [total, setTotal] = useState()
+
+
+
+
+    useEffect(() => {
+        setTotal(getTotal())
+    }, [getTotal])
+
 
     const confirmOrder = () =>{
         setProcessingOrder(true)
@@ -101,7 +110,9 @@ const Cart = () => {
 
     </div>
     <ul>
-    <li className="list-group-item">Precio final:  ${getTotal()}</li>
+    {(total > 0 && !processingOrder) && <h3>Total: ${total}</h3>}
+    {!processingOrder && products.length > 0 && <button onClick={() => confirmOrder()} className="Button">Confirmar Compra</button>}
+
     <button href="#" className="btn btn-dark" onClick={() =>{clear()}}>Borrar compras</button>
     </ul>
                 </>
