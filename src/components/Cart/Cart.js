@@ -93,12 +93,13 @@ const Cart = () => {
                                     </ul>
                                         <div className="card-body p-3">
                                             <button href="#" className="btn btn-dark ">Comprar</button>
+                                            
                                             <button onClick={() => {removeItem(product.id)}} className="removeBtn btn btn-dark">X</button>
                                         </div>
                         </div>
                     </div>
 
-
+                    
                 </div>
                 
             </>
@@ -110,8 +111,10 @@ const Cart = () => {
 
     </div>
     <ul>
-    {(total > 0 && !processingOrder) && <h3>Total: ${total}</h3>}
     {!processingOrder && products.length > 0 && <button onClick={() => confirmOrder()} className="Button">Confirmar Compra</button>}
+
+    {(total > 0 && !processingOrder) && <h3>Total: ${total}</h3>}
+    
 
     <button href="#" className="btn btn-dark" onClick={() =>{clear()}}>Borrar compras</button>
     </ul>
