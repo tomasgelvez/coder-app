@@ -9,11 +9,12 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 const Cart = () => {
 //Aca llamo del cartContext las funciones creadas.
-    const { products,removeItem,getTotal } = useContext(CartContext)
+    const { products,removeItem,getTotal,clear } = useContext(CartContext)
+    
 
 //Aca dibujo la cart, con su respectiva informacion(id,precio, cantidad,nombre e img)
     return (
-
+        
 <>
 
     <div>
@@ -53,9 +54,10 @@ const Cart = () => {
         }
 
     </div>
-    
+    <ul>
     <li className="list-group-item">Precio final:  ${getTotal()}</li>
-
+    <button href="#" className="btn btn-dark" onClick={() =>{clear()}}>Borrar compras</button>
+    </ul>
                 </>
     )
 }

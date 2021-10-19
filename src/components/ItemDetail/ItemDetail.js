@@ -31,7 +31,7 @@ const ItemDetail = ({product,productsAdded,addProdFunction}) => {
                             <li className="list-group-item">Stock :{product.stock}</li>
 
                         </ul>
-                            <ItemCount products={product} setCount={setCount}/>
+                            <ItemCount product={product} setCount={setCount}/>
 
             </div>
             </div>
