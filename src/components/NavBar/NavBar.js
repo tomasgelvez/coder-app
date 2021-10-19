@@ -18,7 +18,9 @@ const NavBar = ({categorias}) => {
     return(
         <nav className="navbar navbar-pills navbar-light bg-light h-25">
         <div className="container-fluid ">
+          <Link to='/'>
           <img src="../img/logo.jpg" style={{width:'100px'}} alt=""></img>
+          </Link>
           
         <Link to='/cart'>
           {getQuantity}

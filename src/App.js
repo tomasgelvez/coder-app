@@ -17,10 +17,11 @@ function App() {
   
 
 
+
   return (
     <div className="App">
 
-   <CartContextProvider>
+     <CartContextProvider>
       <BrowserRouter>
         <NavBar categorias={getCategories()}/>
           <Switch>
@@ -42,6 +43,7 @@ function App() {
         </Switch>
     </BrowserRouter>
   </CartContextProvider>
+
 
     </div>
   );
