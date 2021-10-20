@@ -9,10 +9,11 @@ import { useEffect,useState } from 'react';
 import CartContext from '../../context/CartContex';
 import UserContext from '../../context/UserContext'
 import { getCategories } from '../../Services/firebase/firebase';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faSignInAlt} from '@fortawesome/free-solid-svg-icons'
 
 
-
-const NavBar = ({categorias}) => {
+const NavBar = () => {
     const {getQuantity} = useContext(CartContext)
     const {user, logout} = useContext(UserContext)
     const [categories, setCategories] = useState()
@@ -37,17 +38,25 @@ const NavBar = ({categorias}) => {
     }
 
     return(
-        <nav className="navbar navbar-pills navbar-light bg-light h-25">
-        <div className="container-fluid ">
-          <Link to='/'>
+<nav className="NavBar">
+      <div>
+      <Link to='/'>
           <img src="../img/logo.jpg" style={{width:'100px'}} alt=""></img>
-          </Link>
-          
-          <div>
+      </Link>
+      </div>
+      <div className="productsAll">
+          <a aria-current className='active' href='/'>
+            <div>Productos</div>
+          </a>
+      </div>
+      <div className="Categories">
+        {categories?.map(category => <NavLink key={category.id} to={`/category/${category.id}`} className='Option' activeClassName="NavLink">{category.description}</NavLink>)}     
+      </div>
+      <div>
         {
           user 
-            ? <button onClick={handleLogout}>Logout</button>
-            : <Link to='/login'><button>Login</button></Link>
+            ? <button onClick={handleLogout} className='btn btn-danger'>Exit</button>
+            : <Link to='/login'><button className='btn btn-primary'>Login</button></Link>
         }
       </div>
       <div>
@@ -59,30 +68,7 @@ const NavBar = ({categorias}) => {
         }
       </div>
 
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul className="navbar-nav">
-        <li className="nav-item">
-        <Link to="/" className="nav-link" activeclassname="active" aria-current="page">  Inicio </Link>
-        </li>
-        <li className="nav-item">
-        <NavLink to={"/About"} className="nav-link"  activeclassname="active" aria-current="page">  About </NavLink>
-        </li>
-        <li className="nav-item dropdown">
-          <ul className="nav-item dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li>
-              
-            {categories?.map(category => <NavLink key={category.id} to={`/category/${category.id}`} className='Option' activeClassName="NavLink">{category.description}</NavLink>)}   
-            </li>
-          </ul>
-
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    </nav>
     )
 }
 

@@ -7,7 +7,11 @@
     width: 100%;
 
 }
-
+a.active {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+}
 .navButtonsLeft{
     padding-left: 25px;
     display: grid;
@@ -43,7 +47,17 @@
 .Option{
     background-color: aliceblue;
     color: rgb(15, 14, 14);
-    text-decoration: none;
     border-radius: 35;
+    list-style: none;
+}
+a.Option {
+    font-size: 18px;
+    padding: 5px;
+  background: #adb5bd;
+  display: inline-block;
+  text-decoration: none;
 }
 
+a:hover {
+    color: #188ccfa4; 
+}

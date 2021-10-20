@@ -26,9 +26,14 @@ const ItemListContainer = ()=> {
     }, [categoryid])
 
     return (
+        <>
+        <div className="parrafo--products">
+            {<h4>Consegui tus productos en linea</h4>}
+        </div>
         <div className="ItemListContainer" >
              { loading ? "Cargando..." : <ItemList products={products}/> }
         </div>
+        </>
     )    
     
 }
