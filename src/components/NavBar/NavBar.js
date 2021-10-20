@@ -44,11 +44,14 @@ const NavBar = () => {
           <img src="../img/logo.jpg" style={{width:'100px'}} alt=""></img>
       </Link>
       </div>
+      <Link to='/'>
       <div className="productsAll">
           <a aria-current className='active' href='/'>
             <div>Productos</div>
           </a>
+
       </div>
+      </Link>
       <div className="Categories">
         {categories?.map(category => <NavLink key={category.id} to={`/category/${category.id}`} className='Option' activeClassName="NavLink">{category.description}</NavLink>)}     
       </div>

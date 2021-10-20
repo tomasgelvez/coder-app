@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ItemList from '../itemList/ItemList'
 import { getProducts } from "../../Services/firebase/firebase";
-
+import Carrousel from "../Carrousel/Carrousel";
 
 const ItemListContainer = ()=> {
     const [products, setProducts] = useState([])
@@ -27,6 +27,7 @@ const ItemListContainer = ()=> {
 
     return (
         <>
+        
         <div className="parrafo--products">
             {<h4>Consegui tus productos en linea</h4>}
         </div>

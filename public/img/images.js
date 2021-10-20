@@ -1,19 +1,16 @@
 
-import Televisor1 from '../img/televisor1.jpg'
-
-import Lavarropa1 from '../img/lavarropa.png'
-
-import Celular1 from '../img/celular.png'
-
-import Heladera1 from '../img/shopping.png'
 
 
+import Imagen1 from '../img/imagen1.jpeg'
+import Imagen2 from '../img/imagen2.jpeg'
+import Imagen3 from '../img/imagen3.jpeg'
+import Imagen4 from '../img/imagen4.jpeg'
 
 
 export default {
     
-    "Televisor1" : Televisor1,
-    "Lavarropa1" : Lavarropa1,
-    "Celular1" : Celular1,
-    "Heladera1" : Heladera1
+    "Fondo1" : Imagen1,
+    "fondo2" : Imagen2,
+    "fondo3" : Imagen3,
+    "fondo4" : Imagen4
 }

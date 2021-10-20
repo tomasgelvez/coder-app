@@ -1,69 +1,57 @@
 import CartContext from "../../context/CartContex"
-import { useContext,useEffect,useState } from "react"
+import { useContext,useEffect,useState,useRef } from "react"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import { getDoc, Timestamp, writeBatch,doc, DocumentSnapshot, addDoc,collection} from "@firebase/firestore";
-import { db } from "../../Services/firebase/firebase";
 import UserContext from '../../context/UserContext'
+import { useHistory } from 'react-router'
+import {createOrder} from '../../Services/firebase/firebase'
+import ItemList from '../itemList/ItemList'
+import Togglable from '../Toggable/Toggable'
+import ContactForm from "../ContactForm/ContactForm";
 
 
 //Aca creo el componente Cart
 
 const Cart = () => {
 //Aca llamo del cartContext las funciones creadas.
-    const { products,removeItem,getTotal,clear } = useContext(CartContext)
-    const {processingOrder,setProcessingOrder} = useState(false)
-    const {user} = useContext(UserContext)
-    const [total, setTotal] = useState()
+const [processingOrder, setProcessingOrder] = useState(false)
+const [contact, setContact] = useState({
+    telefono: '',
+    correo: '',
+    comentario: ''
+})
+const { products, clear,removeItem, getTotal } = useContext(CartContext)
+const { user } = useContext(UserContext)
+const contactFormRef = useRef()
+const history = useHistory()
 
+const confirmOrder = () => {
+    setProcessingOrder(true)
 
-
-
-    useEffect(() => {
-        setTotal(getTotal())
-    }, [getTotal])
-
-
-    const confirmOrder = () =>{
-        setProcessingOrder(true)
-
-        const objOrder = {
-            buyer: user,
-            items: products,
-            total: getTotal(),
-            date: Timestamp.fromDate(new Date())
-        }
-
-        const batch = writeBatch(db)
-        const outOfStock = []
-
-        objOrder.items.forEach((prod,i) => {
-            getDoc(doc(db,'items', prod.id)).then(DocumentSnapshot => {
-                if(DocumentSnapshot.data().stock >= objOrder.items[i].quantity){
-                    batch.update(doc(db, 'items', DocumentSnapshot.id),{
-                        stock : DocumentSnapshot.data().stock - objOrder.items[i].quantity
-                    })
-                }else{
-                    outOfStock.push({...DocumentSnapshot.data(), id: DocumentSnapshot.id})
-                }
-            })
-        })
-
-
-        if(outOfStock.length === 0){
-            addDoc(collection(db, 'compras'), objOrder).then(() =>{
-                batch.commit().then(() => {
-                    console.log("La orden se ejecuto con exito")
-                })
-            }).catch((error) =>{
-                console.log("hay un error en el stock")
-            }).finally(() =>{
-                setProcessingOrder(false)
-                clear()
-            })
-        }
+    const objOrder = {
+        buyer: user,
+        items: products,
+        total: getTotal(),
+        phone: contact.telefono,
+        address: contact.correo,
+        comment: contact.comentario
     }
-
+     
+    createOrder(objOrder).then(msg => {
+        console.log('success', msg)
+    }).catch(error => {
+        console.log('error', error)
+    }).finally(() => {
+        setProcessingOrder(false)
+        clear()
+        setContact({
+            telefono: '',
+            correo: '',
+            comentario: ''
+        })
+        history.push('/')
+    })
+}
 
 
 
@@ -72,7 +60,7 @@ const Cart = () => {
         
 <>
 
-    <div>
+    <div className="d-flex col-2">
         {products.map(product =>{
             return(
                 <>
@@ -110,8 +98,19 @@ const Cart = () => {
     </div>
     <ul>
     
-
-    {(total > 0 && !processingOrder) && <h3>Total: ${total}</h3>}
+    {(!processingOrder && contact.telefono !== '' && contact.correo !== '' && contact.comentario !== '') &&
+                <div>
+                    <h4>Telefono: {contact.telefono}</h4>
+                    <h4>Direccion: {contact.correo}</h4>
+                    <h4>Comentario: {contact.comentario}</h4>
+                    <button onClick={() => setContact({ telefono: '', correo: '', comentario: ''})} className='Button' style={{backgroundColor: '#db4025'}}>Borrar datos de contacto</button>
+                </div>    
+            }
+            {(!processingOrder && products.length) > 0 && <Togglable buttonLabelShow={(contact.telefono !== '' && contact.correo !== '' && contact.comentario !== '') ? 'Editar contacto' : 'Agregar contacto'} ref={contactFormRef}>
+                                                            <ContactForm toggleVisibility={contactFormRef} setContact={setContact} />
+                                                          </Togglable> }
+            
+    {(getTotal() > 0 && !processingOrder) && <h3>Total: ${getTotal()}</h3>}
     
 
     <button href="#" className="btn btn-dark" onClick={() =>{clear()}}>Borrar compras</button>
