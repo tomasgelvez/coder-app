@@ -5,15 +5,32 @@ import '../CartWidget/cartWidget.css'
 import {Link, NavLink} from 'react-router-dom'
 import CartWidget from '../CartWidget/cartWidget';
 import { useContext } from 'react/cjs/react.development';
+import { useEffect,useState } from 'react';
 import CartContext from '../../context/CartContex';
 import UserContext from '../../context/UserContext'
+import { getCategories } from '../../Services/firebase/firebase';
 
 
 
 const NavBar = ({categorias}) => {
     const {getQuantity} = useContext(CartContext)
     const {user, logout} = useContext(UserContext)
-console.log(user)
+    const [categories, setCategories] = useState()
+
+
+
+
+    useEffect(() => {
+      getCategories().then(categories => {
+        setCategories(categories)
+      }).catch((error) => {
+        console.log(error)
+      })
+      return () => {
+        setCategories()
+      }
+    }, [])
+
     const handleLogout = () => {
       logout()
       console.log('error', `Hasta luego ${user}`)
@@ -56,7 +73,8 @@ console.log(user)
         <li className="nav-item dropdown">
           <ul className="nav-item dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li>
-                {categorias.map(categoria => <NavLink key={categoria.id} to={`/category/${categoria.title}`} className="dropdown-item">{categoria.name}</NavLink>)}
+              
+            {categories?.map(category => <NavLink key={category.id} to={`/category/${category.id}`} className='Option' activeClassName="NavLink">{category.description}</NavLink>)}   
             </li>
           </ul>
 

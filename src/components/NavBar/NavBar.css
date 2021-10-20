@@ -1,6 +1,6 @@
 .NavBar{
     display: flex;
-    background: rgb(177, 162, 162);
+    background: #adb5bd;
     justify-content: space-around;
     align-items: center;
     height: 120px;

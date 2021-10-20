@@ -1,11 +1,14 @@
 import { useState, useContext } from 'react'
 import UserContext from '../../context/UserContext'
 import login from '../Login/login.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCheckSquare} from '@fortawesome/free-solid-svg-icons'
 import { useHistory } from 'react-router-dom'
 
 const Login = () => {
     const [username, setUsername] = useState('')
     const [surname, setSurname] = useState('')
+    const [mail, setMail] = useState('')
     const { login } = useContext(UserContext)
     const history = useHistory()
 
@@ -14,7 +17,8 @@ const Login = () => {
 
         const objUser = {
             username,
-            surname
+            surname,
+            mail
         }
 
         login(objUser)
@@ -48,7 +52,18 @@ const Login = () => {
                     onChange={({ target }) => setSurname(target.value)}
                   />
                 </label>
-                <button type='submit' className='Button'>Ingresar datos</button>
+                <label className="formGroupExampleInput3">
+                  Email
+                <input
+                  className="form-control"
+                  placeholder='Ingresa tu correo electronico'
+                  type='text'
+                  value={mail}
+                  onChange={({ target }) => setMail(target.value)}
+                />
+                </label>
+                <button type='submit' className='btn btn-dark'>Ingresar datos</button>
+               
             </div>
           </form>
         </div>

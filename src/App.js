@@ -26,7 +26,7 @@ function App() {
 
      <CartContextProvider>
       <BrowserRouter>
-        <NavBar categorias={getCategories()}/>
+        <NavBar/>
           <Switch>
             <Route exact path ="/">
               <ItemListContainer/>

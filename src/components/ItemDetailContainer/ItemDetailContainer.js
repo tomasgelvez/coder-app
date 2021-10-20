@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from '../ItemDetail/ItemDetail'
-import { db } from '../../Services/firebase/firebase'
-import { doc, getDoc } from 'firebase/firestore'
+import { getProductById } from '../../Services/firebase/firebase'
 
 const ItemDetailContainer = ({ productsAdded, addProdFunction }) => {
     const [product, setProduct] = useState(undefined)
@@ -12,11 +11,10 @@ const ItemDetailContainer = ({ productsAdded, addProdFunction }) => {
     
     useEffect(() => {
         setLoading(true)
-        getDoc(doc(db, 'items' , itemid)).then((querySnapshot) => {
-            const product = { id: querySnapshot.id, ...querySnapshot.data()}
+        getProductById(itemid).then(product => {
             setProduct(product)
         }).catch((error) => {
-            console.log('Error searching intems', error)
+            console.log(error)
         }).finally(() => {
             setLoading(false)
         })

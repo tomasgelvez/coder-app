@@ -29,16 +29,16 @@ const ItemDetail = ({product,productsAdded,addProdFunction}) => {
                         <p className="card-text">{product.description}</p>
                     </div>
                         <ul className="list-group list-group-flush">
-                            <li className="list-group-item">{product.price}</li>
-                            <li className="list-group-item">Stock :{product.stock}</li>
+                            <li className="list-group-item">${product.price}</li>
+                            <li className="list-group-item">Stock : {product.stock}</li>
 
                         </ul>
                         {
             count === 0 && user
                 ? <ItemCount product={product} productsAdded={productsAdded} addProdFunction={addProdFunction} setCount={setCount} />
                 : user 
-                    ? <Link to='/cart'><button className="Button">Ir al carrito</button></Link>
-                    : <Link to='/login'><button className="Button">Login</button></Link>
+                    ? <Link to='/cart'><button className="btn btn-dark">Ir al carrito</button></Link>
+                    : <Link to='/login'><button className="btn btn-dark">Login</button></Link>
             }
             </div>
             </div>

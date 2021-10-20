@@ -79,7 +79,7 @@ const Cart = () => {
                 <div className="container ">
                     <div className="row">
                         <div className="card d-flex text-aling-center" id={product.id} style={{width: "18rem"}}>
-                            <img className="card-img-top" src={product.imagen} alt={product.title}></img>
+                            <img className="card-img-top" src={product.imagen} alt=""></img>
                                 <div className="card-body">
                                     <h5 className="card-title">{product.title}</h5>
                                     <p className="card-text">{product.description}</p>
@@ -92,8 +92,6 @@ const Cart = () => {
 
                                     </ul>
                                         <div className="card-body p-3">
-                                            <button href="#" className="btn btn-dark ">Comprar</button>
-                                            
                                             <button onClick={() => {removeItem(product.id)}} className="removeBtn btn btn-dark">X</button>
                                         </div>
                         </div>
@@ -111,12 +109,13 @@ const Cart = () => {
 
     </div>
     <ul>
-    {!processingOrder && products.length > 0 && <button onClick={() => confirmOrder()} className="Button">Confirmar Compra</button>}
+    
 
     {(total > 0 && !processingOrder) && <h3>Total: ${total}</h3>}
     
 
     <button href="#" className="btn btn-dark" onClick={() =>{clear()}}>Borrar compras</button>
+    {!processingOrder && products.length > 0 && <button onClick={() => confirmOrder()} className="btn btn-dark">Confirmar Compra</button>}    
     </ul>
                 </>
     )
