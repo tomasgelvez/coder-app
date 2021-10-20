@@ -6,9 +6,14 @@
 
 .formGroupExampleInput{
     display:flex;
+    padding: 20px;
 }
 
-
+.label.formGroupExampleInput2 {
+    padding: 20px;
+}
 .formGroupExampleInput2{
     display: flex;
+    padding-bottom: 20px;
+
 }

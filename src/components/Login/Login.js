@@ -48,7 +48,7 @@ const Login = () => {
                     onChange={({ target }) => setSurname(target.value)}
                   />
                 </label>
-                <button type='submit' className='Button'>Login</button>
+                <button type='submit' className='Button'>Ingresar datos</button>
             </div>
           </form>
         </div>
