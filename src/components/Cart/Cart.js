@@ -30,7 +30,7 @@ const confirmOrder = () => {
     setProcessingOrder(true)
 
     const objOrder = {
-        buyer: user,
+        comprador: user,
         items: products,
         total: getTotal(),
         telefono: contact.telefono,
@@ -63,13 +63,13 @@ const confirmOrder = () => {
         
 <>
 
-    <div className="d-flex col-2">
+<div className="d-flex col-2"  >
         {products.map(product =>{
             return(
                 <>
-                <div className="container ">
+                <div className="container " id={product.id}>
                     <div className="row">
-                        <div className="card d-flex text-aling-center" id={product.id} style={{width: "18rem"}}>
+                        <div className="card d-flex text-aling-center" style={{width: "18rem"}}>
                             <img className="card-img-top" src={product.imagen} alt=""></img>
                                 <div className="card-body">
                                     <h5 className="card-title">{product.title}</h5>

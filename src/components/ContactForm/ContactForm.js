@@ -28,8 +28,8 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
         <div className='ContactContainer'>
           <div>Informacion del comprador</div>
           <form className='ContactForm' onSubmit={handleContactForm}>
-                <div class="form-group">
-                  <label for="formGroupExampleInput">Telefono 
+                <div className="form-group">
+                  <label className="formGroupExampleInput">Telefono 
                   <input
                       className='InputContact'
                       placeholder='Inserta tu numero telefonico'
@@ -39,8 +39,8 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                   />
                   </label>
                 </div>
-                <div class="form-group">
-                  <label for="formGroupExampleInput2">Correo electronico
+                <div className="form-group">
+                  <label className="formGroupExampleInput2">Correo electronico
                   <input
                 className='InputContact'
                 placeholder='Inserta tu correo electronico'
@@ -51,8 +51,8 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
 
                    </label>
                 </div>
-                <div class="form-group">
-                  <label for="formGroupExampleInput2">Direccion                 
+                <div className="form-group">
+                  <label className="formGroupExampleInput2">Direccion                 
                 <input
                 className='InputContact'
                 placeholder='Inserta tu direccion'
@@ -63,8 +63,8 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
 
                    </label>
                 </div>
-                <div class="form-group">
-                  <label for="formGroupExampleInput2">Comentarios
+                <div className="form-group">
+                  <label className="formGroupExampleInput2">Comentarios
                   <input
                 className='InputContact'
                 placeholder='Inserta tus comentarios extras'

@@ -8,10 +8,10 @@ import Item  from '../Item/Item.js'
 const ItemList = ({products}) => {
 
 
-/*     if(products?.length === 0){
+    if(products?.length === 0){
         return <h3>Cargando stock...</h3>
     }
- */
+
 
 
 
@@ -22,8 +22,8 @@ const ItemList = ({products}) => {
 	        <div className="row">
                 {products?.map(products =>
                 (
-                    <div className = "col-md-3">
-                        <Item  products={products} key={products.id} />
+                    <div className = "col-md-3" key={products.id}>
+                        <Item  products={products} />
                     </div>
                 ))}
             </div>
