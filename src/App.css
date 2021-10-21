@@ -1,7 +1,14 @@
 .App {
   text-align: center;
+  background: #a0b1c2;
+  width: 100%;
+  min-height: 100vh;
 }
-
+.section{
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

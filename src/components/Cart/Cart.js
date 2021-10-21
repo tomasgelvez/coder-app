@@ -18,6 +18,7 @@ const [processingOrder, setProcessingOrder] = useState(false)
 const [contact, setContact] = useState({
     telefono: '',
     correo: '',
+    direccion: '',
     comentario: ''
 })
 const { products, clear,removeItem, getTotal } = useContext(CartContext)
@@ -32,9 +33,10 @@ const confirmOrder = () => {
         buyer: user,
         items: products,
         total: getTotal(),
-        phone: contact.telefono,
-        address: contact.correo,
-        comment: contact.comentario
+        telefono: contact.telefono,
+        correo: contact.correo,
+        direccion: contact.direccion,
+        comentario: contact.comentario
     }
      
     createOrder(objOrder).then(msg => {
@@ -47,6 +49,7 @@ const confirmOrder = () => {
         setContact({
             telefono: '',
             correo: '',
+            direccion: '',
             comentario: ''
         })
         history.push('/')
@@ -98,20 +101,21 @@ const confirmOrder = () => {
     </div>
     <ul>
     
-    {(!processingOrder && contact.telefono !== '' && contact.correo !== '' && contact.comentario !== '') &&
+    {(!processingOrder && contact.telefono !== '' && contact.correo !== '' && contact.direccion !== '' && contact.comentario !== '') &&
                 <div>
                     <h4>Telefono: {contact.telefono}</h4>
-                    <h4>Direccion: {contact.correo}</h4>
+                    <h4>Correo electronico: {contact.correo}</h4>
+                    <h4>Direccion: {contact.direccion}</h4>
                     <h4>Comentario: {contact.comentario}</h4>
-                    <button onClick={() => setContact({ telefono: '', correo: '', comentario: ''})} className='Button' style={{backgroundColor: '#db4025'}}>Borrar datos de contacto</button>
+                    <button onClick={() => setContact({ telefono: '', correo: '', direccion: '',comentario: ''})} className='Button' style={{backgroundColor: '#db4025'}}>Borrar datos de contacto</button>
                 </div>    
             }
-            {(!processingOrder && products.length) > 0 && <Togglable buttonLabelShow={(contact.telefono !== '' && contact.correo !== '' && contact.comentario !== '') ? 'Editar contacto' : 'Agregar contacto'} ref={contactFormRef}>
+            {(!processingOrder && products.length) > 0 && <Togglable buttonLabelShow={(contact.telefono !== '' && contact.correo !== '' && contact.direccion !== '' && contact.comentario !== '') ? 'Editar contacto' : 'Agregar contacto'} ref={contactFormRef}>
                                                             <ContactForm toggleVisibility={contactFormRef} setContact={setContact} />
                                                           </Togglable> }
-            
+
     {(getTotal() > 0 && !processingOrder) && <h3>Total: ${getTotal()}</h3>}
-    
+
 
     <button href="#" className="btn btn-dark" onClick={() =>{clear()}}>Borrar compras</button>
     {!processingOrder && products.length > 0 && <button onClick={() => confirmOrder()} className="btn btn-dark">Confirmar Compra</button>}    

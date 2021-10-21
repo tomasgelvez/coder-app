@@ -6,7 +6,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
     const [telefono, setTelefono] = useState('')
     const [correo, setCorreo] = useState('')
     const [comentario, setComentario] = useState('')
-
+    const [direccion, setDireccion] = useState('')
     const handleContactForm = (e) => {
         e.preventDefault()
         toggleVisibility.current.toggleVisibility()
@@ -14,11 +14,13 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
         const objContact = {
             telefono,
             correo,
+            direccion,
             comentario
         }
         setContact(objContact)
         setTelefono('')
         setCorreo('')
+        setDireccion('')
         setComentario('')
     }
 
@@ -45,6 +47,18 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                 type='text'
                 value={correo}
                 onChange={({ target }) => setCorreo(target.value)}
+                   />
+
+                   </label>
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput2">Direccion                 
+                <input
+                className='InputContact'
+                placeholder='Inserta tu direccion'
+                type='text'
+                value={direccion}
+                onChange={({ target }) => setDireccion(target.value)}
                    />
 
                    </label>

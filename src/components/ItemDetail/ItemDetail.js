@@ -19,9 +19,9 @@ const ItemDetail = ({product,productsAdded,addProdFunction}) => {
 
     return(
         <>
-            <div className="container">
+            <div className="container d-flex  text-aling-center">
             <div className="row">
-            <div className="card d-flex text-aling-center  " id={product.id} style={{width: '18rem'}}>
+            <div className="card" id={product.id} style={{width: '18rem'}}>
 
                 <img className="card-img-top" src={product.imagen} alt="Card"></img>
                     <div className="card-body">

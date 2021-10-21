@@ -1,8 +1,6 @@
 import { useState, useContext } from 'react'
 import UserContext from '../../context/UserContext'
-import login from '../Login/login.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faCheckSquare} from '@fortawesome/free-solid-svg-icons'
+import '../Login/login.css'
 import { useHistory } from 'react-router-dom'
 
 const Login = () => {
