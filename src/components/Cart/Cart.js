@@ -49,7 +49,7 @@ const confirmOrder = () => {
         setContact({
             telefono: '',
             correo: '',
-            direccion: '',
+            direccion:'',
             comentario: ''
         })
         history.push('/')

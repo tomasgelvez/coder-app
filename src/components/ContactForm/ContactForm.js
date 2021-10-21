@@ -73,7 +73,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                 onChange={({ target }) => setComentario(target.value)}
                     />
                    </label>
-                   <button className='Button' type='submit'>Confirmar</button>
+                   <button className='btn btn-dark' type='submit'>Confirmar datos</button>
 
                 </div>
         </form>

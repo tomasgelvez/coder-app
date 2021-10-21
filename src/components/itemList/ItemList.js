@@ -8,10 +8,10 @@ import Item  from '../Item/Item.js'
 const ItemList = ({products}) => {
 
 
-    if(products?.length === 0){
+/*     if(products?.length === 0){
         return <h3>Cargando stock...</h3>
     }
-
+ */
 
 
 

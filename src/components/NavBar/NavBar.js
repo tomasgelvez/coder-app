@@ -46,10 +46,7 @@ const NavBar = () => {
       </div>
       <Link to='/'>
       <div className="productsAll">
-          <a aria-current className='active' href='/'>
-            <div>Productos</div>
-          </a>
-
+        <div className='Option' activeClassName="NavLink">Productos</div>
       </div>
       </Link>
       <div className="Categories">
