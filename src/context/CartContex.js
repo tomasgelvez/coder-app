@@ -1,5 +1,6 @@
 
 import { useState,createContext } from "react";
+import Swal from 'sweetalert2';
 
 
 
@@ -41,6 +42,10 @@ export const CartContextProvider = ({children}) => {
     const removeItem = (id) => {
         const newProduct = products.filter(element => element.id !== id)
         setProducts(newProduct)
+        Swal.fire(
+            'Ocurrio un error', 'No hay stock' , 'error'
+
+        )
     }
 
     const clear = () => {

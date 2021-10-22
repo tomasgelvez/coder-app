@@ -1,5 +1,5 @@
 import CartContext from "../../context/CartContex"
-import { useContext,useEffect,useState,useRef } from "react"
+import { useContext,useState,useRef } from "react"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import UserContext from '../../context/UserContext'
@@ -66,14 +66,14 @@ const confirmOrder = () => {
 
 //Aca dibujo la cart, con su respectiva informacion(id,precio, cantidad,nombre e img)
     return (
-        
+
 <>
 
 <div className="d-flex col-2"  >
         {products.map(product =>{
             return(
-                <>
-                <div className="container " id={product.id}>
+                
+                <div className="container " key={product.id}>
                     <div className="row">
                         <div className="card d-flex text-aling-center" style={{width: "18rem"}}>
                             <img className="card-img-top" src={product.imagen} alt=""></img>
@@ -97,7 +97,7 @@ const confirmOrder = () => {
                     
                 </div>
                 
-            </>
+            
             )
 
         })
