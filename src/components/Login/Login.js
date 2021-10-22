@@ -2,6 +2,7 @@ import { useState, useContext } from 'react'
 import UserContext from '../../context/UserContext'
 import '../Login/login.css'
 import { useHistory } from 'react-router-dom'
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const [username, setUsername] = useState('')
@@ -20,7 +21,8 @@ const Login = () => {
         }
 
         login(objUser)
-        console.log('success', `Bienvenido ${objUser.username}`)
+        Swal.fire('Los datos son correctos',`Bienvenido ${objUser.username} ${objUser.surname}`,'success')
+
         history.push('/')
     }
 

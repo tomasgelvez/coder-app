@@ -5,15 +5,18 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import UserContext from '../../context/UserContext'
 import { useHistory } from 'react-router'
 import {createOrder} from '../../Services/firebase/firebase'
-import ItemList from '../itemList/ItemList'
 import Togglable from '../Toggable/Toggable'
 import ContactForm from "../ContactForm/ContactForm";
+import Swal from 'sweetalert2';
+
 
 
 //Aca creo el componente Cart
 
 const Cart = () => {
 //Aca llamo del cartContext las funciones creadas.
+
+
 const [processingOrder, setProcessingOrder] = useState(false)
 const [contact, setContact] = useState({
     telefono: '',
@@ -40,9 +43,10 @@ const confirmOrder = () => {
     }
      
     createOrder(objOrder).then(msg => {
-        console.log('success', msg)
+            console.log('success', msg)
+ 
     }).catch(error => {
-        console.log('error', error)
+        Swal.fire('Ocurrio un error', 'No hay stock' , 'error')
     }).finally(() => {
         setProcessingOrder(false)
         clear()
@@ -52,7 +56,9 @@ const confirmOrder = () => {
             direccion:'',
             comentario: ''
         })
+        Swal.fire('Tu compra fué realizada con éxito','los datos son correctos','success')
         history.push('/')
+
     })
 }
 
@@ -125,4 +131,3 @@ const confirmOrder = () => {
 }
 
 export default Cart
-

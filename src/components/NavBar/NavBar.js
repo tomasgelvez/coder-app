@@ -9,8 +9,7 @@ import { useEffect,useState } from 'react';
 import CartContext from '../../context/CartContex';
 import UserContext from '../../context/UserContext'
 import { getCategories } from '../../Services/firebase/firebase';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faSignInAlt} from '@fortawesome/free-solid-svg-icons'
+
 
 
 const NavBar = () => {
@@ -56,7 +55,7 @@ const NavBar = () => {
         {
           user 
             ? <button onClick={handleLogout} className='btn btn-danger'>Exit</button>
-            : <Link to='/login'><button className='btn btn-primary'>Login</button></Link>
+            : <Link to='/login'><button className='btn btn-primary'>Ingresar datos</button></Link>
         }
       </div>
       <div>

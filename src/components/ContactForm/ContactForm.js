@@ -52,7 +52,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                    </label>
                 </div>
                 <div className="form-group">
-                  <label className="formGroupExampleInput2">Direccion                 
+                  <label className="formGroupExampleInput2">Direccion
                 <input
                 className='InputContact'
                 placeholder='Inserta tu direccion'

@@ -12,7 +12,7 @@ const images = [
   {
       id: '2' ,
       title: 'imagen2',
-      image: 'https://www.gentilehogar.com.ar/web-experto/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBejBORWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--18f2e7cbabe9b3bb9c0ed112d190d2e5d297b149/1440x600-main-banner-SAMSUNG-v2.jpg'
+      image: 'https://s3-us-east-2.amazonaws.com/mieleb2ccl/banner_images/images/000/000/085/large/Banner-Web_Santanderv1_1920x800.jpg?1631216362'
     },
     {
       id: '3' ,
