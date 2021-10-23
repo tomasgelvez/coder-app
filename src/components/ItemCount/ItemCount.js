@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react/cjs/react.development"
 import { useContext } from "react"
 import CartContext from "../../context/CartContex"
-
+import Swal from 'sweetalert2';
 
 //Empiezo el componente itemCount
 
@@ -41,6 +41,7 @@ const ItemCount = ({product,setCount}) =>{
     const onAddtoCart = () =>{
         setCount(quantity)
         addItem(product,quantity)
+        Swal.fire('Se agrego un producto al carrito','Buen trabajo','success')
         setTimeout(() =>{
 
             setQuantity(0)

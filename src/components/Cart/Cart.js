@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 
 
 
+
 //Aca creo el componente Cart
 
 const Cart = () => {
@@ -22,7 +23,7 @@ const [contact, setContact] = useState({
     telefono: '',
     correo: '',
     direccion: '',
-    comentario: ''
+    cdgoPostal: ''
 })
 const { products, clear,removeItem, getTotal } = useContext(CartContext)
 const { user } = useContext(UserContext)
@@ -39,14 +40,16 @@ const confirmOrder = () => {
         telefono: contact.telefono,
         correo: contact.correo,
         direccion: contact.direccion,
-        comentario: contact.comentario
+        cdgoPostal: contact.cdgoPostal
     }
      
     createOrder(objOrder).then(msg => {
         Swal.fire('Tu compra fué realizada con éxito','los datos son correctos','success')
  
     }).catch(error => {
-        Swal.fire('Ocurrio un error', 'No hay stock' , 'error')
+        Swal.fire(
+            'Ocurrio un error', 'error'
+        )
     }).finally(() => {
         setProcessingOrder(false)
         clear()
@@ -54,7 +57,7 @@ const confirmOrder = () => {
             telefono: '',
             correo: '',
             direccion:'',
-            comentario: ''
+            cdgoPostal: ''
         })
         Swal.fire('Tu compra fué realizada con éxito','los datos son correctos','success')
         history.push('/')
@@ -107,16 +110,16 @@ const confirmOrder = () => {
     </div>
     <ul>
     
-    {(!processingOrder && contact.telefono !== '' && contact.correo !== '' && contact.direccion !== '' && contact.comentario !== '') &&
+    {(!processingOrder && contact.telefono !== '' && contact.correo !== '' && contact.direccion !== '' && contact.cdgoPostal !== '') &&
                 <div>
                     <h4>Telefono: {contact.telefono}</h4>
                     <h4>Correo electronico: {contact.correo}</h4>
                     <h4>Direccion: {contact.direccion}</h4>
-                    <h4>Comentario: {contact.comentario}</h4>
-                    <button onClick={() => setContact({ telefono: '', correo: '', direccion: '',comentario: ''})} className='Button' style={{backgroundColor: '#db4025'}}>Borrar datos de contacto</button>
+                    <h4>Codigo postal: {contact.cdgoPostal}</h4>
+                    <button onClick={() => setContact({ telefono: '', correo: '', direccion: '',cdgoPostal: ''})} className='Button' style={{backgroundColor: '#db4025'}}>Borrar datos de contacto</button>
                 </div>    
             }
-            {(!processingOrder && products.length) > 0 && <Togglable buttonLabelShow={(contact.telefono !== '' && contact.correo !== '' && contact.direccion !== '' && contact.comentario !== '') ? 'Editar contacto' : 'Agregar contacto'} ref={contactFormRef}>
+            {(!processingOrder && products.length) > 0 && <Togglable buttonLabelShow={(contact.telefono !== '' && contact.correo !== '' && contact.direccion !== '' && contact.cdgoPostal !== '') ? 'Editar contacto' : 'Agregar contacto'} ref={contactFormRef}>
                                                             <ContactForm toggleVisibility={contactFormRef} setContact={setContact} />
                                                           </Togglable> }
 

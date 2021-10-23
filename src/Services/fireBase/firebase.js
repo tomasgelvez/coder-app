@@ -3,12 +3,12 @@ import { getFirestore } from 'firebase/firestore'
 import { collection,getDocs,query,where,doc,getDoc,writeBatch,addDoc,Timestamp} from 'firebase/firestore'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC3oOP-zIvXhcOrFCRig5dGEkbi9V8AqFg",
-    authDomain: "my-app-coder-gelvez.firebaseapp.com",
-    projectId: "my-app-coder-gelvez",
-    storageBucket: "my-app-coder-gelvez.appspot.com",
-    messagingSenderId: "663302674217",
-    appId: "1:663302674217:web:2ed001f12dfbd94a540938"
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId
   };
 
 const app = firebase.initializeApp(firebaseConfig)

@@ -35,6 +35,8 @@ export const CartContextProvider = ({children}) => {
             } )
 
             setProducts(newProducts)
+           
+            
         }
 
     }
@@ -42,8 +44,9 @@ export const CartContextProvider = ({children}) => {
     const removeItem = (id) => {
         const newProduct = products.filter(element => element.id !== id)
         setProducts(newProduct)
+        
         Swal.fire(
-            'Ocurrio un error', 'No hay stock' , 'error'
+            'El producto se elimino satisfactoriamente', 'Puede seguir comprando' , 'error'
 
         )
     }

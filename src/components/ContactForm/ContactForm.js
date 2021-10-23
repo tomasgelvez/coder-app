@@ -5,7 +5,7 @@ import './ContactForm.css'
 const ContactForm = ({ toggleVisibility, setContact }) => {
     const [telefono, setTelefono] = useState('')
     const [correo, setCorreo] = useState('')
-    const [comentario, setComentario] = useState('')
+    const [cdgoPostal, setCdgoPostal] = useState('')
     const [direccion, setDireccion] = useState('')
     const handleContactForm = (e) => {
         e.preventDefault()
@@ -15,13 +15,13 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
             telefono,
             correo,
             direccion,
-            comentario
+            cdgoPostal
         }
         setContact(objContact)
         setTelefono('')
         setCorreo('')
         setDireccion('')
-        setComentario('')
+        setCdgoPostal('')
     }
 
     return (
@@ -64,13 +64,13 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
                    </label>
                 </div>
                 <div className="form-group">
-                  <label className="formGroupExampleInput2">Comentarios
+                  <label className="formGroupExampleInput2">Codigo postal
                   <input
                 className='InputContact'
-                placeholder='Inserta tus comentarios extras'
+                placeholder='Inserta tu codigo postal'
                 type='text'
-                value={comentario}
-                onChange={({ target }) => setComentario(target.value)}
+                value={cdgoPostal}
+                onChange={({ target }) => setCdgoPostal(target.value)}
                     />
                    </label>
                    <button className='btn btn-dark' type='submit'>Confirmar datos</button>
