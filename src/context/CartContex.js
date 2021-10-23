@@ -12,7 +12,7 @@ export const CartContextProvider = ({children}) => {
     const [products,setProducts] = useState([])
     
     const addItem = (item,quantity) => {
-        console.log(item)
+
         const newProduct = {
             ...item,
             quantity: quantity

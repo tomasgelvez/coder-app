@@ -43,7 +43,7 @@ const confirmOrder = () => {
     }
      
     createOrder(objOrder).then(msg => {
-            console.log('success', msg)
+        Swal.fire('Tu compra fué realizada con éxito','los datos son correctos','success')
  
     }).catch(error => {
         Swal.fire('Ocurrio un error', 'No hay stock' , 'error')

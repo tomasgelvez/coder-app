@@ -39,15 +39,8 @@ const ItemCount = ({product,setCount}) =>{
 //Aca agrego una carta al carrito
 
     const onAddtoCart = () =>{
-        /* const newProduct = {
-            ...products,
-            quantity: quantity
-        } 
-        addProdFunction([...productsAdded, newProduct]) */
         setCount(quantity)
         addItem(product,quantity)
-        console.log(product)
-        console.log(quantity)
         setTimeout(() =>{
 
             setQuantity(0)
