@@ -9,6 +9,7 @@ import { useEffect,useState } from 'react';
 import CartContext from '../../context/CartContex';
 import UserContext from '../../context/UserContext'
 import { getCategories } from '../../Services/firebase/firebase';
+import Swal from 'sweetalert2';
 
 
 
@@ -33,7 +34,7 @@ const NavBar = () => {
 
     const handleLogout = () => {
       logout()
-      console.log('error', `Hasta luego ${user}`)
+      Swal.fire(`Hasta luego ${user} `, 'Se deslogueo correctamente')
     }
 
     return(
